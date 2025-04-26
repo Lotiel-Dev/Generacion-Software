@@ -94,6 +94,6 @@ air
 
 ## Tecnologías Utilizadas
 - Frontend: Angular
-- Backend: [Tecnología del backend]
+- Backend: golang/air/gorilla
 - Contenedores: Docker
 - Orquestación: Docker Compose
