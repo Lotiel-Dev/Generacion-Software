@@ -4,7 +4,7 @@ Repositorio para el proyecto de generación de software.
 
 ## Instrucciones de Despliegue
 
-### Opción 1: Despliegue Individual
+### Opción 1: Usando Docker
 
 #### Frontend
 
@@ -36,7 +36,7 @@ docker run -p 8080:8080 --name backend-contenedor backend
 
 🌐 Acceder al backend: [http://localhost:8080](http://localhost:8080)
 
-### Opción 2: Despliegue Completo
+### Opción 2: Despliegue Completo usando Docker
 
 Para iniciar tanto el frontend como el backend simultáneamente:
 
@@ -50,6 +50,47 @@ docker-compose up -d
 - Backend: [http://localhost:8080](http://localhost:8080)
 
 ---
+
+
+
+## Sin Docker
+Gorilla/mux sirve para las rutas
+Leer la docuemntacion [https://github.com/gorilla/mux](https://github.com/gorilla/mux)
+
+
+Air sirve para auto reload
+Leer la documentacion [https://github.com/air-verse/air](https://github.com/air-verse/air)
+
+
+#### Sin docker
+
+```bash
+cd .\backend
+
+go get -u github.com/gorilla/mux
+
+go install github.com/air-verse/air@latest   
+```
+
+
+
+```bash
+cd .\backend
+
+air
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Tecnologías Utilizadas
 - Frontend: Angular

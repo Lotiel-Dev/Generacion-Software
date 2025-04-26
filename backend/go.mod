@@ -1,3 +1,5 @@
-module github.com/tuusuario/backend
+module github.com/Frosmin/backend
 
 go 1.21
+
+require github.com/gorilla/mux v1.8.1 // indirect

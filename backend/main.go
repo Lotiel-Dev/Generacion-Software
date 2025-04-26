@@ -1,19 +1,15 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"net/http"
+
+	"github.com/Frosmin/backend/routes"
+	"github.com/gorilla/mux"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "¡Hola desde el backend en Go!")
-}
-
 func main() {
-    http.HandleFunc("/", helloHandler)
-    http.HandleFunc("/api/hello", helloHandler)
+	r := mux.NewRouter()
 
-    fmt.Println("Servidor iniciado en http://localhost:8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
+	r.HandleFunc("/", routes.Homehandler)
+	http.ListenAndServe(":8080", r)
 }
