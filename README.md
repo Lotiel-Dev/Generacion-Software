@@ -68,7 +68,8 @@ Leer la documentacion [https://gorm.io/docs/](https://gorm.io/docs/)
 https://gorm.io/docs/
 
 
-#### Sin docker
+## Sin docker
+### Cosa para el backend
 
 ```bash
 cd .\backend
@@ -78,8 +79,7 @@ go get -u github.com/gorilla/mux
 go install github.com/air-verse/air@latest   
 
 go get -u gorm.io/gorm
-go get -u gorm.io/gorm/driver/postgres
-```
+go get -u gorm.io/driver/postgres
 
 
 
@@ -92,13 +92,19 @@ air
 
 
 
+## Docker con postgres 
+```bash
+docker run --name some-postgres -e POSTGRES_USER=simon -e POSTGRES_PASSWORD=simonpepe -p 5432:5432 -d postgres
+
+```
 
 
 
 
 
-
-
+## estandares de codificaion 
+- funciones go siempre en mayuscula 
+- 
 
 
 ## Tecnologías Utilizadas
