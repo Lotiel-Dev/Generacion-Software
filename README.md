@@ -64,7 +64,8 @@ Leer la documentacion [https://github.com/air-verse/air](https://github.com/air-
 
 Orm de go 
 Leer la documentacion [https://github.com/go-gorm/gorm](https://github.com/go-gorm/gorm)
-
+Leer la documentacion [https://gorm.io/docs/](https://gorm.io/docs/)
+https://gorm.io/docs/
 
 
 #### Sin docker
