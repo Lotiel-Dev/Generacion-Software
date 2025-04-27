@@ -76,6 +76,9 @@ cd .\backend
 go get -u github.com/gorilla/mux
 
 go install github.com/air-verse/air@latest   
+
+go get -u gorm.io/gorm
+go get -u gorm.io/gorm/driver/postgres
 ```
 
 
