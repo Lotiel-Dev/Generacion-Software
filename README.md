@@ -62,6 +62,11 @@ Air sirve para auto reload
 Leer la documentacion [https://github.com/air-verse/air](https://github.com/air-verse/air)
 
 
+Orm de go 
+Leer la documentacion [https://github.com/go-gorm/gorm](https://github.com/go-gorm/gorm)
+
+
+
 #### Sin docker
 
 ```bash
