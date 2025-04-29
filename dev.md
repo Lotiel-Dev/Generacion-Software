@@ -64,18 +64,18 @@
     - Minúscula y separados por guiones bajos (_).
     - Describir el contenido brevemente.
     - Ejemplos:
-    - user_service.go
-    - user_service_test.go
-    - payment_handler.go
-    - payment_handler_test.go
+    - `user_service.go`
+    - `user_service_test.go`
+    - `payment_handler.go`
+    - `payment_handler_test.go`
   - Sufijos
-    - Si es un test, agregar _test.go.
-    - No es obligatorio agregar "component" o "service" en el nombre, pero si ayuda a la claridad, se usa (user_service.go).
+    - Si es un test, agregar `_test.go`
+    - No es obligatorio agregar "component" o "service" en el nombre, pero si ayuda a la claridad, se usa (`user_service.go`).
   - Ejemplos correctos:
-    - order_controller.go
-    - order_controller_test.go
-    - db_connection.go
-    - auth_middleware.go
+    - `order_controller.go`
+    - `order_controller_test.go`
+    - `db_connection.go`
+    - `auth_middleware.go`
 - Fuentes: 
   - [Golang Docs](https://go.dev/doc/effective_go#package-names)
   - [Golang Standard Project Layout](https://github.com/golang-standards/project-layout)
