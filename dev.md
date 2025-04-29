@@ -34,6 +34,53 @@
 
  
 ## GO
+- Estructura del proyecto
+    - Seguir la estructura modular estándar.
+    - Separar en paquetes (package) pequeños, claros y reutilizables.
+    - Carpeta principal suele ser /cmd, /pkg, /internal, /api, /configs, etc.
+  - División de la aplicación
+    - cmd/: Programas ejecutables (por ejemplo, el main.go).
+    - internal/: Lógica privada que no se exporta fuera del proyecto.
+    - pkg/: Librerías públicas reutilizables.
+    - api/: Definiciones de API (REST, gRPC, etc.).
+    - configs/: Archivos de configuración.
+    - scripts/: Scripts auxiliares.
+    - build/: Archivos para construir o desplegar.
+    - docs/: Documentación.
+    - tests/: Casos de prueba de integración.
+- Convenciones de Nomenclatura
+  - Paquetes (package)
+    - El nombre debe ser todo en minúsculas, sin guiones ni underscores.
+    - Ejemplos: `auth`, `user`, `payment`, `service`
+  - Funciones, métodos, variables
+    - CamelCase para nombres de funciones, métodos y tipos.
+    - Las funciones exportadas (visibles fuera del paquete) comienzan en mayúscula.
+    - Las funciones internas comienzan en minúscula.
+    - Ejemplos: 
+      - `func GetUserByID(id int) (*User, error)`  // Exportada
+      - `func validateEmail(email string) bool `   // Interna
+- Convenciones para nombrar archivos
+  - Archivos
+    - Minúscula y separados por guiones bajos (_).
+    - Describir el contenido brevemente.
+    - Ejemplos:
+    - user_service.go
+    - user_service_test.go
+    - payment_handler.go
+    - payment_handler_test.go
+  - Sufijos
+    - Si es un test, agregar _test.go.
+    - No es obligatorio agregar "component" o "service" en el nombre, pero si ayuda a la claridad, se usa (user_service.go).
+  - Ejemplos correctos:
+    - order_controller.go
+    - order_controller_test.go
+    - db_connection.go
+    - auth_middleware.go
+- Fuentes: 
+  - [Golang Docs](https://go.dev/doc/effective_go#package-names)
+  - [Golang Standard Project Layout](https://github.com/golang-standards/project-layout)
+
+
 
 ## Organización de carpetas
 ![image](https://github.com/user-attachments/assets/f327f8a6-fad7-4f88-a8f9-72c01ee8b73b)
