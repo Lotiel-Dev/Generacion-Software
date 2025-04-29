@@ -41,7 +41,7 @@
     - `file.component.spec.ts`
     - `button.styled.component.ts`
     - `api.service.ts`
-  - Fuente: [Angular Docs](https://angular.dev/style-guide#extract-templates-and-styles-to-their-own-files)
+  - Fuente: [Angular Docs](https://angular.dev/style-guide#file-structure-conventions)
 
 ## golang/air/gorilla
 
