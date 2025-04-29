@@ -10,7 +10,6 @@
      - Usar gofmt para formatear el codigo automaticamente:
         ```bash
         gofmt -w 
-        ```bash
         gofmt archivo.go
   - Gestión de errores:
       - Manejo de excepciones: Utilizar la gestión de excepciones para evitar errores comunes y facilitar la depuración. 
