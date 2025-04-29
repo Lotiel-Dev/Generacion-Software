@@ -61,7 +61,15 @@ Constantes/Variables: UPPER_CASE con guiones bajos (Ej: MAX_USERS)
   - Nivel AA: Un nivel intermedio de accesibilidad. Cumplir con estos criterios mejora significativamente la accesibilidad para la mayoría de los usuarios con discapacidades.
   - Nivel AAA: El nivel más alto de accesibilidad. Cumplir con estos criterios es posible para algunos contenidos web, pero no siempre es factible para todos.
 - I. Perceptible:
+
   - Alternativas de texto (Nivel A): Todas las imágenes deben tener un texto alternativo (alt) que describa su función o contenido.
   - Adaptable (Nivel A): Crear contenido adaptable que funcione en diferentes tamaños de pantalla sin perder información o estructura.
   - Distinguible (Nivel AA): Facilitar a los usuarios la distinción del contenido, incluyendo un contraste de color suficiente entre el texto y el fondo.
   - Orientación (Nivel AA): No restringir la visualización y funcionamiento del contenido a una sola orientación de pantalla, como vertical u horizontal, a menos que una orientación de pantalla específica sea esencial.
+
+- II. Operable:
+  - Tiempo suficiente (Nivel A): Proporcionar a los usuarios tiempo suficiente para leer y usar el contenido.
+  - Navegable (Nivel AA): Proporcionar en cada página del sitio un título que describa su tema o propósito de en dónde se encuentran.
+  - Ataques y reacciones físicas (Nivel A): No implementar contenido que parpadee de forma que se evite causar convulsiones o reacciones físicas.
+  - Tres destellos (Nivel AAA): El sitio web no contiene nada que parpadee más de tres veces en un segundo.
+  - Animación de interacciones (Nivel AAA): La animación de movimiento activada por la interacción se puede desactivar, a menos que la animación sea esencial para la funcionalidad o la información que se transmite.
