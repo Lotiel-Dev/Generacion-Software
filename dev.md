@@ -76,7 +76,12 @@ Constantes/Variables: UPPER_CASE con guiones bajos (Ej: MAX_USERS)
   - Animación de interacciones (Nivel AAA): La animación de movimiento activada por la interacción se puede desactivar, a menos que la animación sea esencial para la funcionalidad o la información que se transmite.
 
 - III. Comprensible:
+
   - Legible (Nivel AA): Hacer que el contenido de texto sea legible, utilizando un lenguaje claro y sencillo.
   - Asistencia para la entrada (Nivel A): Proporcionar instrucciones claras para completar los formularios.
   - Asistencia para la entrada (Nivel AA): Implementar comprobación de errores y sugerencias para corregirlos en los formularios.
   - Mecanismos de entrada concurrentes (Nivel AAA): El contenido web no restringe el uso de las modalidades de entrada disponibles en una plataforma como ser un ordenador con ratón, teclado y entradas táctiles, excepto cuando la restricción sea esencial.
+
+- IV. Robusto:
+  - Compatible (Nivel A): Utilizar un marcado HTML válido y semántico para estructurar el contenido, manejando las etiquetas HTML correctas para cada tipo de contenido.
+  - Compatible (Nivel A): Evitar la duplicación de id en los elementos HTML, de modo que cada elemento HTML que tenga un id asignado, debe tener un id único.
