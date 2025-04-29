@@ -30,6 +30,12 @@
     - `button.styled.component.ts`
     - `api.service.ts`
   - Fuente: [Angular Docs](https://angular.dev/style-guide#file-structure-conventions)
+ ### Convenciones de Nombrado
+  Clases: UpperCamelCase (Ej: AppComponent)   
+  Propiedades y métodos: lowerCamelCase (Ej: getUserData())
+  Constantes: UPPER_CASE con guiones bajos (Ej: MAX_USERS)
+
+
  
 ## golang/air/gorilla
 
