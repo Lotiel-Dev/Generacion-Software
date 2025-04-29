@@ -126,15 +126,15 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
 
 ### Auditoría de Seguridad
 
-- Ejecutar auditorías de seguridad periódicas para identificar vulnerabilidades conocidas en las dependencias.
-- Herramientas sugeridas:
-  - **Angular (Node.js):**
-    - `npm audit`
-    - `npm audit fix` para corregir automáticamente vulnerabilidades menores y parches.
-  - **Go:**
-    - `govulncheck` para verificar vulnerabilidades en módulos de Go.
-- Las vulnerabilidades críticas deben resolverse antes de hacer un despliegue en producción.
-- Si una dependencia no tiene una actualización inmediata, evaluar reemplazarla o aplicar parches de mitigación.
+- La auditoría de dependencias permite identificar vulnerabilidades conocidas que puedan comprometer la seguridad del proyecto.
+- Angular / Node.js:
+  - Ejecutar `npm audit` regularmente.
+  - Usar `npm audit fix` para aplicar soluciones automáticas si están disponibles.
+  - Revisar manualmente los reportes si hay vulnerabilidades que requieren intervención directa.
+- Go:
+  - Utilizar `govulncheck`, una herramienta oficial que analiza vulnerabilidades con base en la base de datos de seguridad de Go.
+  - Se recomienda también revisar CVEs en dependencias críticas.
+- Las alertas de seguridad no deben ignorarse. Si una vulnerabilidad no puede corregirse por el momento, debe documentarse como un **riesgo aceptado** y monitorearse hasta que exista una solución.
 
 ### Lock Files (package-lock.json, go.mod)
 
