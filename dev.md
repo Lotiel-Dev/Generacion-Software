@@ -48,25 +48,8 @@
 ## golang/air/gorilla
 
 ## Organización de carpetas
-[Proyecto Principal]
-  ├── [src]
-  │   ├── [components]
-  │   │   ├── [ComponenteA]
-  │   │   │   └── [ComponenteA.js]
-  │   │   └── [ComponenteB]
-  │   │       └── [ComponenteB.js]
-  │   ├── [styles]
-  │   │   ├── [global.css]
-  │   │   └── [componentes.css]
-  │   ├── [scripts]
-  │   │   └── [app.js]
-  │   └── [pages]
-  │       └── [PaginaPrincipal.js]
-  ├── [assets]
-  │   └── [images]
-  │       └── [imagen1.png]
-  └── [docs]
-      └── [documentacion.md]
+![image](https://github.com/user-attachments/assets/f327f8a6-fad7-4f88-a8f9-72c01ee8b73b)
+
 
 ## Variables, funciones y clases
 
