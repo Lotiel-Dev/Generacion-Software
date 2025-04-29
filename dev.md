@@ -4,6 +4,20 @@
     - camelCase: Para nombres de variables y métodos, donde la primera letra de la primera palabra es en minúscula y el resto en    mayúscula. 
     - snake_case: Para nombres de variables y funciones, donde las palabras se separan con guiones bajos.
     - Evitar abreviaturas ambiguas en nombres de variables y funciones
+        Para mejorar la legibilidad del código, evita usar abreviaturas poco claras o demasiado crípticas en nombres de variables y funciones. Usa nombres descriptivos que comuniquen claramente su propósito.
+        ### ❌ Malos ejemplos:
+        ```go
+        func calc(d int) int {
+            return d * 2
+        }
+        var cfg = getCfg()
+        
+        ### ❌ Buenos ejemplos:
+        func calculateDiscount(daysRented int) int {
+            return daysRented * 2
+        }
+        var config = loadConfiguration()
+
   - Estilo de código:
      - Documentación: Documentar las funciones, clases y métodos de forma clara y concisa. 
      - Comentarios en línea: Explicar el código complejo para facilitar la comprensión. 
