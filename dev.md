@@ -31,6 +31,9 @@
       - Git: Utilizar sistemas de control de versiones para rastrear los cambios y colaborar en el desarrollo. 
 
 ## Angular
+- Estructura del proyecto
+    - Seguir la estructura remoendada por Angular CLI (modulos, componentes, servicios, etc.).
+    - Dividir la aplicacion en modulos funcionales y reutilizables.
 
 ## golang/air/gorilla
 
