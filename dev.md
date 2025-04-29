@@ -153,7 +153,7 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
 
 Se recomienda seguir el estándar de [**Conventional Commits**](https://www.conventionalcommits.org/) para mantener un historial de Git claro, coherente y fácil de automatizar (ideal para changelogs, releases y CI/CD).
 
-### 🔹 Ejemplo:
+### Ejemplo:
 - feat(auth): agregar autenticación con JWT
 - fix(api): corregir error en llamada al endpoint de usuarios
 
@@ -167,7 +167,17 @@ Se recomienda seguir el estándar de [**Conventional Commits**](https://www.conv
 - `test`: agregar o corregir pruebas  
 - `chore`: tareas de mantenimiento (build, configuración, etc.)
 
-### 🔹 Fuente
+### Fuente
 
 - Sitio oficial: https://www.conventionalcommits.org/en/v1.0.0/
 
+La especificación de **Conventional Commits** es una convención ligera para los mensajes de commit. Proporciona un conjunto fácil de reglas para crear un historial de commits explícito, lo que facilita la creación de herramientas automatizadas encima de este historial. Esta convención se complementa con **SemVer**, ya que describe las características, correcciones y cambios incompatibles en los mensajes de commit.
+
+### Estructura del mensaje de commit:
+
+```plaintext
+<tipo>[alcance opcional]: <descripción>
+
+[cuerpo opcional]
+
+[pie opcional(s)]
