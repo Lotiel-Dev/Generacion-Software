@@ -113,10 +113,16 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
 
 ### Política de Actualización
 
-- Se deben mantener las dependencias actualizadas para beneficiarse de mejoras de seguridad, rendimiento y nuevas funcionalidades.
-- Actualizar solo después de validar que los cambios no rompen la compatibilidad del proyecto.
-- Las actualizaciones mayores (major updates) deben ser evaluadas cuidadosamente y probadas en un entorno de staging antes de integrarse a producción.
-- Utilizar herramientas automáticas cuando sea posible para verificar nuevas versiones de paquetes (`npm outdated`, `go list -u all`, dependabot, Renovate, etc.).
+- Las dependencias deben mantenerse actualizadas para incorporar mejoras de seguridad, corrección de bugs y mejoras de rendimiento.
+- Antes de actualizar, se recomienda revisar el [changelog oficial](https://keepachangelog.com/es-ES/1.0.0/) del paquete o librería para entender los cambios introducidos.
+- Las actualizaciones deben probarse en un entorno local o de staging antes de integrarse a `main`, especialmente si se trata de cambios en versiones **mayores (breaking changes)**.
+- Para proyectos Angular:
+  - Usar `ng update` para sugerencias automatizadas de paquetes compatibles.
+  - Ejecutar `npm outdated` para listar dependencias desactualizadas.
+- Para proyectos Go:
+  - Ejecutar `go list -u -m all` para identificar módulos con nuevas versiones disponibles.
+  - Se recomienda correr `go mod tidy` después de cualquier actualización para limpiar dependencias no utilizadas.
+- Las actualizaciones deben formar parte de un commit y Pull Request documentado con el motivo de la actualización.
 
 ### Auditoría de Seguridad
 
