@@ -85,3 +85,5 @@ Constantes/Variables: UPPER_CASE con guiones bajos (Ej: MAX_USERS)
 - IV. Robusto:
   - Compatible (Nivel A): Utilizar un marcado HTML válido y semántico para estructurar el contenido, manejando las etiquetas HTML correctas para cada tipo de contenido.
   - Compatible (Nivel A): Evitar la duplicación de id en los elementos HTML, de modo que cada elemento HTML que tenga un id asignado, debe tener un id único.
+
+Leease más sobre estándares WCAG2.1 en: https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1
