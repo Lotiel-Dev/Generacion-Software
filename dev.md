@@ -36,10 +36,10 @@
 ## GO
 - Estructura del proyecto
     - Seguir la estructura modular estándar.
-    - Separar en paquetes (package) pequeños, claros y reutilizables.
-    - Carpeta principal suele ser /cmd, /pkg, /internal, /api, /configs, etc.
+    - Separar en paquetes (`package`) pequeños, claros y reutilizables.
+    - Carpeta principal suele ser `/cmd`, `/pkg`, `/internal`, `/api`, `/configs`, etc.
   - División de la aplicación
-    - cmd/: Programas ejecutables (por ejemplo, el main.go).
+    - cmd/: Programas ejecutables (por ejemplo, el `main.go`).
     - internal/: Lógica privada que no se exporta fuera del proyecto.
     - pkg/: Librerías públicas reutilizables.
     - api/: Definiciones de API (REST, gRPC, etc.).
