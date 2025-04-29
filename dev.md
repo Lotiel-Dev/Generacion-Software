@@ -138,7 +138,12 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
 
 ### Lock Files (package-lock.json, go.mod)
 
-- **Nunca eliminar los archivos de lock (`package-lock.json`, `go.mod`, `go.sum`)** del repositorio.
-- Los archivos de lock aseguran la reproducibilidad de los entornos de desarrollo y producción, garantizando que todos los miembros del equipo instalen exactamente las mismas versiones de las dependencias.
-- Siempre incluir cambios en estos archivos como parte del Pull Request si se actualizan las dependencias.
-- No modificar manualmente estos archivos; siempre regenerarlos utilizando las herramientas oficiales (`npm install`, `go mod tidy`).
+- Los archivos de bloqueo (`package-lock.json`, `go.mod`, `go.sum`) deben **mantenerse bajo control de versiones** y nunca eliminarse ni ignorarse.
+- Estos archivos permiten asegurar que todos los entornos (local, CI/CD, producción) usen exactamente las mismas versiones de dependencias, evitando inconsistencias o errores difíciles de reproducir.
+- Angular / Node.js:
+  - Al instalar paquetes, `npm` actualiza automáticamente `package-lock.json`. No editarlo manualmente.
+  - Verificar siempre los cambios en este archivo antes de confirmar un PR, ya que puede indicar actualizaciones no deseadas.
+- Go:
+  - `go.mod` define las versiones mínimas requeridas, mientras que `go.sum` garantiza integridad del contenido.
+  - Usar `go mod tidy` para mantener estos archivos limpios y consistentes.
+- En revisiones de código, cualquier cambio en estos archivos debe ser revisado con atención, ya que puede implicar una modificación indirecta del entorno de ejecución.
