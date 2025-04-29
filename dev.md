@@ -11,9 +11,7 @@
             return d * 2
         }
         var cfg = getCfg()
-
-    ### ✅ Forma correcta:
-        ```go
+        --Forma Correcta
         func calculateDiscount(daysRented int) int {
             return daysRented * 2
         }
