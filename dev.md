@@ -1,10 +1,18 @@
 # Estándares de codificación
 
-## Variables
+## Angular
 
-## Funciones
+## golang/air/gorilla
+
+## Organización de carpetas
+
+## Variables, funciones y clases
 
 - funciones go siempre en mayuscula
 -
 
-## Organización de carpetas
+-
+
+## Accesibilidad
+
+-
