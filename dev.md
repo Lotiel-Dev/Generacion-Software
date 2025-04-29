@@ -107,7 +107,7 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
 
 
   Link del documento: https://cdn.standards.iteh.ai/samples/16883/44acafdfd9a24edd9c66ed2f0e2a50e2/ISO-9241-11-1998.pdf
-  
+
 
 ## Manejo de Dependencias
 
@@ -129,11 +129,3 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
     - `govulncheck` para verificar vulnerabilidades en módulos de Go.
 - Las vulnerabilidades críticas deben resolverse antes de hacer un despliegue en producción.
 - Si una dependencia no tiene una actualización inmediata, evaluar reemplazarla o aplicar parches de mitigación.
-
-### Lock Files (package-lock.json, go.mod)
-
-- **Nunca eliminar los archivos de lock (`package-lock.json`, `go.mod`, `go.sum`)** del repositorio.
-- Los archivos de lock aseguran la reproducibilidad de los entornos de desarrollo y producción, garantizando que todos los miembros del equipo instalen exactamente las mismas versiones de las dependencias.
-- Siempre incluir cambios en estos archivos como parte del Pull Request si se actualizan las dependencias.
-- No modificar manualmente estos archivos; siempre regenerarlos utilizando las herramientas oficiales (`npm install`, `go mod tidy`).
-
