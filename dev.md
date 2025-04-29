@@ -13,6 +13,7 @@
         var cfg = getCfg()
 
     ### ✅ Forma correcta:
+        ```go
         func calculateDiscount(daysRented int) int {
             return daysRented * 2
         }
