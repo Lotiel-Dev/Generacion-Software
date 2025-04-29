@@ -18,7 +18,7 @@
 
 ## Angular
 - Estructura del proyecto
-    - Seguir la estructura remoendada por Angular CLI (modulos, componentes, servicios, etc.).
+    - Seguir la estructura dada por Angular CLI (modulos, componentes, servicios, etc.).
     - Dividir la aplicacion en modulos funcionales y reutilizables.
 - Convenciones de nomenclatura
     - Usar sufijos estandar como `Component`, `Service`, `Module`, etc.
