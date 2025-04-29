@@ -35,7 +35,7 @@
     - Seguir la estructura remoendada por Angular CLI (modulos, componentes, servicios, etc.).
     - Dividir la aplicacion en modulos funcionales y reutilizables.
 - Convenciones de nomenclatura
-    - Usar sufijos estandar como Component, Service, Module, etc.
+    - Usar sufijos estandar como `Component`, `Service`, `Module`, etc.
 - Convenciones para nombrar los archivos:
   - Primero se debe poner el nombre del archivo, luego separado por un punto como se lo va usar (`component`, `styled component`, `service`) y por último la extensión.
   - Ejemplos:
