@@ -11,8 +11,8 @@
             return d * 2
         }
         var cfg = getCfg()
-        
-        ### ❌ Buenos ejemplos:
+
+    ### ✅ Forma correcta:
         func calculateDiscount(daysRented int) int {
             return daysRented * 2
         }
