@@ -147,3 +147,27 @@ La usabilidad se evalúa considerando los siguientes principios (basados en ISO 
   - `go.mod` define las versiones mínimas requeridas, mientras que `go.sum` garantiza integridad del contenido.
   - Usar `go mod tidy` para mantener estos archivos limpios y consistentes.
 - En revisiones de código, cualquier cambio en estos archivos debe ser revisado con atención, ya que puede implicar una modificación indirecta del entorno de ejecución.
+
+
+## GIT Convenciones de Commit
+
+Se recomienda seguir el estándar de [**Conventional Commits**](https://www.conventionalcommits.org/) para mantener un historial de Git claro, coherente y fácil de automatizar (ideal para changelogs, releases y CI/CD).
+
+### 🔹 Ejemplo:
+- feat(auth): agregar autenticación con JWT
+- fix(api): corregir error en llamada al endpoint de usuarios
+
+### Tipos:
+
+- `feat`: nueva funcionalidad  
+- `fix`: corrección de errores  
+- `docs`: cambios en la documentación  
+- `style`: cambios de formato sin afectar lógica 
+- `refactor`: refactorización de código sin cambiar su comportamiento  
+- `test`: agregar o corregir pruebas  
+- `chore`: tareas de mantenimiento (build, configuración, etc.)
+
+### 🔹 Fuente
+
+- Sitio oficial: https://www.conventionalcommits.org/en/v1.0.0/
+
