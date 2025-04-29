@@ -1,4 +1,4 @@
-# Estándares de codificación
+## Estándares de codificación
  - Convenciones de nomenclatura:
     - PascalCase: Para nombres de clases, métodos y propiedades, donde la primera letra de cada palabra se escribe en mayúscula. 
     - camelCase: Para nombres de variables y métodos, donde la primera letra de la primera palabra es en minúscula y el resto en    mayúscula. 
@@ -18,6 +18,14 @@
       - Git: Utilizar sistemas de control de versiones para rastrear los cambios y colaborar en el desarrollo. 
 
 ## Angular
+- Convenciones para estructurar los archivos:
+  - Primero se debe poner el nombre del archivo, luego separado por un punto como se lo va usar (`component`, `styled component`, `service`) y por último la extensión.
+  - Ejemplos:
+    - `file.component.ts`
+    - `file.component.spec.ts`
+    - `button.styled.component.ts`
+    - `api.service.ts`
+  - Fuente: [Angular Docs](https://angular.dev/style-guide#extract-templates-and-styles-to-their-own-files)
 
 ## golang/air/gorilla
 
