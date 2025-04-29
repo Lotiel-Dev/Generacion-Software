@@ -1,8 +1,4 @@
 # Estándares de codificación
-### 
-
-
-
   - Estilo de código:
      - Documentación: Documentar las funciones, clases y métodos de forma clara y concisa. 
      - Comentarios en línea: Explicar el código complejo para facilitar la comprensión. 
@@ -37,18 +33,17 @@
 
 
  
-## golang/air/gorilla
+## GO
 
 ## Organización de carpetas
 ![image](https://github.com/user-attachments/assets/f327f8a6-fad7-4f88-a8f9-72c01ee8b73b)
 
+ ### Convenciones de Nombrado
+    
+  Propiedades y métodos: UpperCamelCase (Ej: AppComponent) 
+  Constantes/Variables: UPPER_CASE con guiones bajos (Ej: MAX_USERS)
 
-## Variables, funciones y clases
 
-- funciones go siempre en mayuscula
--
-
--
 
 ## Accesibilidad
 
