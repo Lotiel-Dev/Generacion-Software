@@ -48,3 +48,19 @@
 ## Accesibilidad
 
 -
+
+## Usabilidad 
+
+La usabilidad se evalúa considerando los siguientes principios (basados en ISO 9241-11):
+
+- **Efectividad**  
+  El grado en que los usuarios pueden lograr sus objetivos de manera precisa y completa.
+
+- **Eficiencia**  
+  El nivel de recursos utilizados en relación con la precisión y completitud de los resultados.
+
+- **Satisfacción**  
+  El grado de comodidad y aceptación que experimentan los usuarios al utilizar el producto.
+
+
+  Link del documento: https://cdn.standards.iteh.ai/samples/16883/44acafdfd9a24edd9c66ed2f0e2a50e2/ISO-9241-11-1998.pdf
