@@ -32,3 +32,4 @@ tmp/
 # Archivos de configuración sensibles
 .env
 .env*
+db/.env
