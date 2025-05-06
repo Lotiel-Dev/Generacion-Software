@@ -2,12 +2,17 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: radial-gradient(circle at center, #000000 0%, 
-                                   #000000 30%,
-                                   #0a2a09 60%, 
-                                   #235f1b 85%, 
-                                   #33a02c 100%);
-  color: white; 
+  background: 
+    radial-gradient(circle at center, #000000 0%, 
+                    rgba(0,0,0,0.8) 25%,
+                    rgba(0,0,0,0) 50%),
+    linear-gradient(to bottom right, 
+                    #33a02c 0%, 
+                    #0a2a09 30%, 
+                    #000000 50%, 
+                    #0a2a09 70%, 
+                    #33a02c 100%);
+  color: white;
 }
 
 
