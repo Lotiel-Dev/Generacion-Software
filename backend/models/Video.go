@@ -5,7 +5,7 @@ import "gorm.io/gorm"
 type Video struct {
 	gorm.Model
 
-	Name  string
+	Title string `grorm:"unique;not null"`
 	Link  string
 	Level int
 }

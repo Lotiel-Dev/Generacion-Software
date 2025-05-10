@@ -5,7 +5,7 @@ import "gorm.io/gorm"
 type Exercise struct {
 	gorm.Model
 
-	Name     string
+	Title    string `grorm:"unique;not null"`
 	Exercise string
 	Solution string
 	Level    int
