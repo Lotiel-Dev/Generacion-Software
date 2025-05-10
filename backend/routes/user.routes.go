@@ -45,5 +45,22 @@ func PostUserHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("dekete user"))
+	var user models.User
+	params := mux.Vars(r)
+	db.DB.First(&user, params["id"])
+
+	if user.ID == 0 {
+		w.WriteHeader(http.StatusNotFound)
+		w.Write([]byte("usuario no encontrado"))
+		return
+	}
+	//borrar el usuario de la base de datos
+	db.DB.Unscoped().Delete(&user)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("usuario eliminado"))
+
+	//para no borrar el usuario de la base de datos, sino solo marcarlo como eliminado
+	// 	db.DB.Delete(&user)
+	// 	w.WriteHeader(http.StatusOK)
+	// 	w.Write([]byte("usuario eliminado"))
 }
