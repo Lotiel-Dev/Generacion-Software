@@ -11,6 +11,8 @@ import (
 )
 
 func main() {
+
+	// migraciones para la base de datos
 	db.Connect()
 	db.DB.AutoMigrate(models.User{})
 	db.DB.AutoMigrate(models.Exercise{})
@@ -21,6 +23,14 @@ func main() {
 
 	r.HandleFunc("/", routes.Homehandler)
 	r.HandleFunc("/lsp", routes.LspHandler)
+
+	//simon
+	api := r.PathPrefix("/api").Subrouter()
+
+	api.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
+	api.HandleFunc("/user/{id}", routes.GetUserHandler).Methods("GET")
+	api.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
+	api.HandleFunc("/users", routes.DeleteUserHandler).Methods("DELETE")
 
 	log.Println("Servidor escuchando en :8080")
 	// log.Fatal(http.ListenAndServe(":8080", r))
