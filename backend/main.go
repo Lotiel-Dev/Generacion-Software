@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/Frosmin/backend/db"
-	"github.com/Frosmin/backend/models"
 	"github.com/Frosmin/backend/routes"
 	"github.com/gorilla/mux"
 )
@@ -14,10 +13,10 @@ func main() {
 
 	// migraciones para la base de datos
 	db.Connect()
-	db.DB.AutoMigrate(models.User{})
-	db.DB.AutoMigrate(models.Exercise{})
-	db.DB.AutoMigrate(models.Tutorial{})
-	db.DB.AutoMigrate(models.Video{})
+	// db.DB.AutoMigrate(models.User{})
+	// db.DB.AutoMigrate(models.Exercise{})
+	// db.DB.AutoMigrate(models.Tutorial{})
+	// db.DB.AutoMigrate(models.Video{})
 
 	r := mux.NewRouter()
 
