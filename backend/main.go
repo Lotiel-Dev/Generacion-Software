@@ -29,8 +29,8 @@ func main() {
 
 	api.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
 	api.HandleFunc("/user/{id}", routes.GetUserHandler).Methods("GET")
-	api.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
-	api.HandleFunc("/users", routes.DeleteUserHandler).Methods("DELETE")
+	api.HandleFunc("/user", routes.PostUserHandler).Methods("POST")
+	api.HandleFunc("/user", routes.DeleteUserHandler).Methods("DELETE")
 
 	log.Println("Servidor escuchando en :8080")
 	// log.Fatal(http.ListenAndServe(":8080", r))
