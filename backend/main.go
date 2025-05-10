@@ -13,6 +13,9 @@ import (
 func main() {
 	db.Connect()
 	db.DB.AutoMigrate(models.User{})
+	db.DB.AutoMigrate(models.Exercise{})
+	db.DB.AutoMigrate(models.Tutorial{})
+	db.DB.AutoMigrate(models.Video{})
 
 	r := mux.NewRouter()
 
