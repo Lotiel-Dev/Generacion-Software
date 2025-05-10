@@ -5,12 +5,14 @@ import (
 	"net/http"
 
 	"github.com/Frosmin/backend/db"
+	"github.com/Frosmin/backend/models"
 	"github.com/Frosmin/backend/routes"
 	"github.com/gorilla/mux"
 )
 
 func main() {
 	db.Connect()
+	db.DB.AutoMigrate(models.User{})
 
 	r := mux.NewRouter()
 
