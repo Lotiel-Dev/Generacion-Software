@@ -26,11 +26,14 @@ func main() {
 
 	//simon
 	api := r.Group("/api")
-
+	//User
 	api.GET("/users", routes.GetUsersHandler)
 	api.GET("/user/{id}", routes.GetUserHandler)
 	api.POST("/user", routes.PostUserHandler)
 	api.DELETE("/user/{id}", routes.DeleteUserHandler)
+	//Video
+	api.GET("/videos", routes.GetVideosHandler)
+
 	log.Println("Servidor escuchando en :8080")
 	// log.Fatal(http.ListenAndServe(":8080", r))
 	http.ListenAndServe(":8080", r)
