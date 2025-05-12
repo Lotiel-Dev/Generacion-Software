@@ -27,6 +27,12 @@ func GetVideoHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, video)
 }
 
+func GetVideosHandler20(c *gin.Context) {
+	var videos []models.Video
+	db.DB.Limit(20).Find(&videos)
+	c.JSON(http.StatusOK, videos)
+}
+
 func PostVideoHandler(c *gin.Context) {
 	var video models.Video
 

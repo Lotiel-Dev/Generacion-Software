@@ -35,6 +35,7 @@ func main() {
 	api.GET("/videos", routes.GetVideosHandler)
 	api.GET("/video/:id", routes.GetVideoHandler)
 	api.POST("/video", routes.PostVideoHandler)
+	api.GET("/videos20", routes.GetVideosHandler20)
 
 	log.Println("Servidor escuchando en :8080")
 	// log.Fatal(http.ListenAndServe(":8080", r))
