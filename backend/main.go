@@ -28,12 +28,12 @@ func main() {
 	api := r.Group("/api")
 	//User
 	api.GET("/users", routes.GetUsersHandler)
-	api.GET("/user/{id", routes.GetUserHandler)
+	api.GET("/user/:id", routes.GetUserHandler)
 	api.POST("/user", routes.PostUserHandler)
-	api.DELETE("/user/{id}", routes.DeleteUserHandler)
+	api.DELETE("/user/:id", routes.DeleteUserHandler)
 	//Video
 	api.GET("/videos", routes.GetVideosHandler)
-	api.GET("/video/{id}", routes.GetVideoHandler)
+	api.GET("/video/:id", routes.GetVideoHandler)
 	api.POST("/video", routes.PostVideoHandler)
 
 	log.Println("Servidor escuchando en :8080")
