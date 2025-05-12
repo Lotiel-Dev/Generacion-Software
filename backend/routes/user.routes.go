@@ -1,66 +1,61 @@
 package routes
 
 import (
-	"encoding/json"
 	"net/http"
 
 	"github.com/Frosmin/backend/db"
 	"github.com/Frosmin/backend/models"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 )
 
-func GetUsersHandler(w http.ResponseWriter, r *http.Request) {
+func GetUsersHandler(c *gin.Context) {
 	var users []models.User
 	db.DB.Find(&users)
-	json.NewEncoder(w).Encode(&users)
+	c.JSON(http.StatusOK, users)
 }
 
-func GetUserHandler(w http.ResponseWriter, r *http.Request) {
+func GetUserHandler(c *gin.Context) {
+	id := c.Param("id")
 	var user models.User
-	params := mux.Vars(r)
-	db.DB.First(&user, params["id"])
+	db.DB.First(&user, id)
 
 	if user.ID == 0 {
-		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte("usuario no encontrado"))
+		c.JSON(http.StatusNotFound, gin.H{"error": "usuario no encontrado"})
 		return
 	}
 
-	json.NewEncoder(w).Encode(&user)
+	c.JSON(http.StatusOK, user)
 }
 
-func PostUserHandler(w http.ResponseWriter, r *http.Request) {
+func PostUserHandler(c *gin.Context) {
 	var user models.User
-	json.NewDecoder(r.Body).Decode(&user)
-	createdUser := db.DB.Create(&user)
 
-	error := createdUser.Error
+	var error = c.ShouldBindJSON(&user)
+
 	if error != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		w.Write([]byte("error al crear usuario"))
+		c.JSON(http.StatusBadRequest, gin.H{"error": "usuario no creado"})
 	}
 
-	json.NewEncoder(w).Encode(&user)
+	c.JSON(http.StatusCreated, user)
 
 }
 
-func DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
+func DeleteUserHandler(c *gin.Context) {
+	id := c.Param("id")
 	var user models.User
-	params := mux.Vars(r)
-	db.DB.First(&user, params["id"])
+
+	db.DB.First(&user, id)
 
 	if user.ID == 0 {
-		w.WriteHeader(http.StatusNotFound)
-		w.Write([]byte("usuario no encontrado"))
+		c.JSON(http.StatusNotFound, gin.H{"error": "Usuario no encontrado"})
 		return
 	}
-	//borrar el usuario de la base de datos
-	db.DB.Unscoped().Delete(&user)
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("usuario eliminado"))
 
-	//para no borrar el usuario de la base de datos, sino solo marcarlo como eliminado
-	// 	db.DB.Delete(&user)
-	// 	w.WriteHeader(http.StatusOK)
-	// 	w.Write([]byte("usuario eliminado"))
+	// Eliminación definitiva
+	db.DB.Unscoped().Delete(&user)
+
+	// Opcional: soft delete (mantiene el registro pero lo marca como eliminado)
+	// db.DB.Delete(&user)
+
+	c.JSON(http.StatusOK, gin.H{"message": "Usuario eliminado correctamente"})
 }
