@@ -13,3 +13,15 @@ func GetVideosHandler(c *gin.Context) {
 	db.DB.Find(&videos)
 	c.JSON(http.StatusOK, videos)
 }
+
+func PostVideoHandler(c *gin.Context) {
+	var video models.Video
+
+	var error = c.ShouldBindJSON(&video)
+	if error != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "video no creado"})
+		return
+	}
+	db.DB.Create(&video)
+	c.JSON(http.StatusCreated, video)
+}
