@@ -6,7 +6,7 @@ import (
 
 	"github.com/Frosmin/backend/db"
 	"github.com/Frosmin/backend/routes"
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -18,19 +18,19 @@ func main() {
 	// db.DB.AutoMigrate(models.Tutorial{})
 	// db.DB.AutoMigrate(models.Video{})
 
-	r := mux.NewRouter()
+	r := gin.Default()
 
-	r.HandleFunc("/", routes.Homehandler)
-	r.HandleFunc("/lsp", routes.LspHandler)
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "Bienvenido a la API de Aprendizaje Python")
+	})
 
 	//simon
-	api := r.PathPrefix("/api").Subrouter()
+	api := r.Group("/api")
 
-	api.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
-	api.HandleFunc("/user/{id}", routes.GetUserHandler).Methods("GET")
-	api.HandleFunc("/user", routes.PostUserHandler).Methods("POST")
-	api.HandleFunc("/user/{id}", routes.DeleteUserHandler).Methods("DELETE")
-
+	api.GET("/users", routes.GetUsersHandler)
+	api.GET("/user/{id}", routes.GetUserHandler)
+	api.POST("/user", routes.PostUserHandler)
+	api.DELETE("/user/{id}", routes.DeleteUserHandler)
 	log.Println("Servidor escuchando en :8080")
 	// log.Fatal(http.ListenAndServe(":8080", r))
 	http.ListenAndServe(":8080", r)
