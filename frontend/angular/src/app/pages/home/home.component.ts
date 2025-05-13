@@ -1,7 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ParticlesComponent } from '../../shared/particles/particles.component';
 
 @Component({
   selector: 'app-home',
+  imports: [ ParticlesComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
