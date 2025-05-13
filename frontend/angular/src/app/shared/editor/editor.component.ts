@@ -17,7 +17,7 @@ export class EditorComponent implements OnInit {
   pyodide: any;
 
   async ngOnInit() {
-    const { loadPyodide } = await import('pyodide');
+    const { loadPyodide } = await import(/* @vite-ignore */ 'pyodide');
     this.pyodide = await loadPyodide();
     console.log('Pyodide cargado');
   }

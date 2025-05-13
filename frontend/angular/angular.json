@@ -34,7 +34,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "viteConfig": {
+              "optimizeDeps": {
+                "exclude": ["pyodide"]
+              }
+            }
           },
           "configurations": {
             "production": {
