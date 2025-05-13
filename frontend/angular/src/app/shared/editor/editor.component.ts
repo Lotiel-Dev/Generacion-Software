@@ -24,6 +24,25 @@ export class EditorComponent implements OnInit {
 
   async ejecutarCodigo() {
     try {
+      const inputLines = this.inputs.split('\n');
+      let inputIndex = 0;
+
+   
+      const inputFunction = (prompt = '') => {
+        if (inputIndex >= inputLines.length) {
+          throw new Error('No hay más inputs disponibles');
+        }
+        const value = inputLines[inputIndex];
+        inputIndex++;
+        return value;
+      };
+
+      
+      this.pyodide.globals.set('input', inputFunction);
+
+      
+      this.output = '';
+
       
       this.pyodide.setStdout({
         batched: (text: string) => {
@@ -31,14 +50,14 @@ export class EditorComponent implements OnInit {
         }
       });
 
-      
-      this.output = '';
-
+    
       await this.pyodide.runPythonAsync(this.codigo);
 
     } catch (error) {
       this.output = `Error: ${error}`;
     }
   }
+
+
 
 }
