@@ -10,8 +10,7 @@ import { EditorComponent } from './editor/editor.component';
     FormsModule
   ],
   exports: [
-    EditorComponent,
-    // exporta también NavbarComponent, FooterComponent si los usas fuera
+    EditorComponent
   ]
 })
 export class SharedModule { }
