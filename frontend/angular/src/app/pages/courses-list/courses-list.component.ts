@@ -7,8 +7,7 @@ import jsPDF from 'jspdf';
   styleUrl: './courses-list.component.scss'
 })
 export class CoursesListComponent {
-   leccionTitulo = 'Lección 1';
-  leccionContenido = 'Este es el contenido de la lección que se verá en el archivo.';
+
 
    descargarComoTxt(): void {
     const texto = document.getElementById('lorem-ipsum-text')?.innerText;
