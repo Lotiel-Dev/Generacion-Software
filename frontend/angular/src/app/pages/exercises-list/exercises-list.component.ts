@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-exercises-list',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './exercises-list.component.html',
   styleUrl: './exercises-list.component.scss'
 })
-export class ExercisesListComponent {
 
+export class ExercisesListComponent {
+ 
 }
