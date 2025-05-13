@@ -1,9 +1,9 @@
 <div class="editor-container">
   <h2>Editor de Código Python</h2>
 
-  <textarea [(ngModel)]="codigo" placeholder="Escribe tu código Python aquí..."></textarea>
+  <textarea [(ngModel)]="codigo" placeholder="Escribe tu código Python aquí..." spellcheck="false"></textarea>
 
-  <textarea [(ngModel)]="inputs" placeholder="Escribe los inputs aquí..."></textarea>
+  <textarea [(ngModel)]="inputs" placeholder="Escribe los inputs aquí..." spellcheck="false"></textarea>
 
   <button (click)="ejecutarCodigo()">Ejecutar</button>
 
