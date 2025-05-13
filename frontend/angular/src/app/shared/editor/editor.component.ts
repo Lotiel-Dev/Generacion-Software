@@ -24,10 +24,21 @@ export class EditorComponent implements OnInit {
 
   async ejecutarCodigo() {
     try {
-      const result = await this.pyodide.runPythonAsync(this.codigo);
-      this.output = result;
+      
+      this.pyodide.setStdout({
+        batched: (text: string) => {
+          this.output += text;
+        }
+      });
+
+      
+      this.output = '';
+
+      await this.pyodide.runPythonAsync(this.codigo);
+
     } catch (error) {
       this.output = `Error: ${error}`;
     }
   }
+
 }
