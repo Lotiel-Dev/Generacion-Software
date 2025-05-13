@@ -10,6 +10,7 @@ export class EditorComponent {
   inputs: string = '';
   output: string = '';
 
+  
   ejecutarCodigo() {
     
     console.log('Código:', this.codigo);
