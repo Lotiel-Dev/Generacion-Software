@@ -13,7 +13,6 @@ export class ExercisesListComponent {
   leccionContenido = 'Este es el contenido de la lección que se verá en el archivo.';
 
    descargarComoTxt(): void {
-    // Obtener el contenido del HTML del div con id 'lorem-ipsum-text'
     const texto = document.getElementById('lorem-ipsum-text')?.innerText;
     
     if (texto) {
@@ -21,18 +20,31 @@ export class ExercisesListComponent {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'lorem-ipsum.txt'; // Nombre del archivo a descargar
+      a.download = 'lorem-ipsum.txt'; 
       a.click();
       URL.revokeObjectURL(url);
     }
   }
  descargarComoPDF(): void {
+  const texto = document.getElementById('lorem-ipsum-text')?.innerText;
+
+  if (texto) {
     const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 10;
+    const usableWidth = pageWidth - margin * 2;
+
     doc.setFontSize(16);
-    doc.text(this.leccionTitulo, 10, 20);
+    doc.text('Texto de ejemplo:', margin, 20);
+
     doc.setFontSize(12);
-    doc.text(this.leccionContenido, 10, 30);
-    doc.save('leccion.pdf');
+
+    const lineas = doc.splitTextToSize(texto, usableWidth);
+
+    doc.text(lineas, margin, 30);
+
+    doc.save('lorem-ipsum.pdf');
   }
+}
  
 }
