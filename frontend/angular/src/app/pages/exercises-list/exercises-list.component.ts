@@ -11,7 +11,7 @@ import jsPDF from 'jspdf';
 export class ExercisesListComponent {
    leccionTitulo = 'Lección 1';
   leccionContenido = 'Este es el contenido de la lección que se verá en el archivo.';
-  
+
   descargarComoTxt(): void {
     const texto = `Título: ${this.leccionTitulo}\nContenido: ${this.leccionContenido}`;
     const blob = new Blob([texto], { type: 'text/plain' });
@@ -22,8 +22,7 @@ export class ExercisesListComponent {
     a.click();
     URL.revokeObjectURL(url);
   }
-
-  descargarComoPDF(): void {
+ descargarComoPDF(): void {
     const doc = new jsPDF();
     doc.setFontSize(16);
     doc.text(this.leccionTitulo, 10, 20);
@@ -31,4 +30,5 @@ export class ExercisesListComponent {
     doc.text(this.leccionContenido, 10, 30);
     doc.save('leccion.pdf');
   }
+ 
 }
