@@ -12,15 +12,19 @@ export class ExercisesListComponent {
    leccionTitulo = 'Lección 1';
   leccionContenido = 'Este es el contenido de la lección que se verá en el archivo.';
 
-  descargarComoTxt(): void {
-    const texto = `Título: ${this.leccionTitulo}\nContenido: ${this.leccionContenido}`;
-    const blob = new Blob([texto], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'leccion.txt';
-    a.click();
-    URL.revokeObjectURL(url);
+   descargarComoTxt(): void {
+    // Obtener el contenido del HTML del div con id 'lorem-ipsum-text'
+    const texto = document.getElementById('lorem-ipsum-text')?.innerText;
+    
+    if (texto) {
+      const blob = new Blob([texto], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'lorem-ipsum.txt'; // Nombre del archivo a descargar
+      a.click();
+      URL.revokeObjectURL(url);
+    }
   }
  descargarComoPDF(): void {
     const doc = new jsPDF();
