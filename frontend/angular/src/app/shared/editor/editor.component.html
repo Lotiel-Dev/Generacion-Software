@@ -1,1 +1,12 @@
-<p>editor works!</p>
+<div class="editor-container">
+  <h2>Editor de Código Python</h2>
+
+  <textarea [(ngModel)]="codigo" placeholder="Escribe tu código Python aquí..."></textarea>
+
+  <textarea [(ngModel)]="inputs" placeholder="Escribe los inputs aquí..."></textarea>
+
+  <button (click)="ejecutarCodigo()">Ejecutar</button>
+
+  <h3>Output:</h3>
+  <pre>{{ output }}</pre>
+</div>
