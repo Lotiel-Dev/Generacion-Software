@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -9,18 +9,25 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-
-export class EditorComponent {
+export class EditorComponent implements OnInit {
   codigo: string = '';
   inputs: string = '';
   output: string = '';
 
-  
-  ejecutarCodigo() {
-    
-    console.log('Código:', this.codigo);
-    console.log('Inputs:', this.inputs);
+  pyodide: any;
 
-    this.output = 'Simulando ejecución de Python...\nOutput generado.';
+  async ngOnInit() {
+    const { loadPyodide } = await import('pyodide');
+    this.pyodide = await loadPyodide();
+    console.log('Pyodide cargado');
+  }
+
+  async ejecutarCodigo() {
+    try {
+      const result = await this.pyodide.runPythonAsync(this.codigo);
+      this.output = result;
+    } catch (error) {
+      this.output = `Error: ${error}`;
+    }
   }
 }
