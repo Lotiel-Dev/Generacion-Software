@@ -1,9 +1,9 @@
-  name: prueba de Deploy
+  name: Deploy
   on:
     push:
       branches: ["main"]
-    #pull_request: preguntar si hacer el pull request
-      #branches: ["main"]
+    pull_request: #preguntar si hacer el pull request
+      branches: ["main"]
   
   jobs:
     build:
