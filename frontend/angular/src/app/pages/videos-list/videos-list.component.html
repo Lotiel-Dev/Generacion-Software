@@ -9,8 +9,16 @@
 </div>
 
 <div class="videos-container">
-  <div *ngIf="filteredVideos.length === 0" class="loading-message">
+  <div *ngIf="loading" class="loading-message">
     Cargando vídeos...
+  </div>
+  
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="!loading && !error && filteredVideos.length === 0" class="no-videos-message">
+    No hay vídeos disponibles para este nivel de dificultad.
   </div>
   
   <div *ngFor="let video of filteredVideos" class="video-card">

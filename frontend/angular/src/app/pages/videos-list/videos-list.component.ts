@@ -1,11 +1,11 @@
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
+import { SafeUrlPipe } from '../../shared/pipes/safe-url.pipe';
 
 interface Video {
   ID: number;
-  Title: String;
+  Title: string;
   Link: string;
   Level: number;
 }
@@ -13,7 +13,7 @@ interface Video {
 @Component({
   selector: 'app-videos-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SafeUrlPipe],
   templateUrl: './videos-list.component.html',
   styleUrl: './videos-list.component.scss',
 })
@@ -21,24 +21,32 @@ export class VideosListComponent implements OnInit {
   videos: Video[] = [];
   filteredVideos: Video[] = [];
   currentLevel: number = 1;
+  loading: boolean = true;
+  error: string | null = null;
 
-    constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){}
 
-    ngOnInit(): void {
-      this.loadVideos();
-    }
+  ngOnInit(): void {
+    this.loadVideos();
+  }
 
-    loadVideos(): void {
-      this.http.get<Video[]>('/api/videos').subscribe({
-        next : (response) => {
-          this.videos = response;
-          this.filterVideosByLevel();
-        },
-        error: (error) => {
-          console.error('error al cargar el video', error);
-        }
-      });
-    }
+  loadVideos(): void {
+    // Usar la URL completa del backend
+    this.http.get<Video[]>('http://localhost:8080/api/videos').subscribe({
+      next: (response) => {
+        console.log('Respuesta del API:', response); // Para depurar
+        this.videos = response;
+        this.filterVideosByLevel();
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error al cargar los videos:', error);
+        this.error = 'Error al cargar los videos. Por favor, intenta más tarde.';
+        this.loading = false;
+      }
+    });
+  }
+
   filterVideosByLevel(): void {
     this.filteredVideos = this.videos.filter(video => video.Level === this.currentLevel);
   }
