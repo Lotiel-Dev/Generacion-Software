@@ -96,3 +96,37 @@ label[for="pill-premium"]:hover {
     var(--hard-color)
   );
 }
+
+.videos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.video-card {
+  background: var(--pill-bg);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  
+  h3 {
+    padding: 1rem;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.2rem;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.loading-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
