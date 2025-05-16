@@ -34,8 +34,14 @@ export class VideosListComponent implements OnInit {
     // Usar la URL completa del backend
     this.http.get<Video[]>('http://localhost:8080/api/videos').subscribe({
       next: (response) => {
-        console.log('Respuesta del API:', response); // Para depurar
-        this.videos = response;
+        console.log('Respuesta del API:', response); 
+        
+        //trasformar videos a ebebed
+        this.videos = response.map(video => ({
+          ...video,
+          Link: this.convertToEmbedURL(video.Link)
+        }));
+        
         this.filterVideosByLevel();
         this.loading = false;
       },
@@ -45,6 +51,30 @@ export class VideosListComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+
+  convertToEmbedURL(url: string): string {
+    if (!url) return '';
+    
+    
+    if (url.includes('youtube.com/embed/')) {
+      return url;
+    }
+
+    let videoId = '';
+    
+    const watchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/);
+    if (watchMatch) {
+      videoId = watchMatch[1];
+    }
+    
+    if (videoId) {
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+    
+    console.warn('No se pudo convertir a formato embed:', url);
+    return url;
   }
 
   filterVideosByLevel(): void {
