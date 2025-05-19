@@ -12,13 +12,27 @@ import { TerminalComponent } from '../../pages/terminal/terminal.component';
 })
 export class NavbarComponent implements OnInit {
   isScrolled = false;
+  isMenuActive = false;
+
+  toggleMenu() {
+    this.isMenuActive = !this.isMenuActive;
+  }
+
+  closeMenu() {
+    this.isMenuActive = false;
+  }
+
   ngOnInit(): void {
     this.checkScroll();
   }
 
-  @HostListener('window:scroll',[])
-    checkScroll(){
-      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      this.isScrolled = scrollPosition > 100;
-    }
+  @HostListener('window:scroll', [])
+  checkScroll() {
+    const scrollPosition =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    this.isScrolled = scrollPosition > 100;
+  }
 }
