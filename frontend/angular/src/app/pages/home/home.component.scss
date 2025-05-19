@@ -54,20 +54,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 720px) {
-  .home-section h1 {
-    font-size: 2rem;
-  }
-  .home-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .contenedorBotones {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
 /* From Uiverse.io by cssbuttons-io */
 button {
   align-items: center;
@@ -153,6 +139,29 @@ button:active {
   max-width: 40%;
   height: auto;
   margin: 2rem auto;
+}
+
+@media screen and (max-width: 720px) {
+  #banner {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .imgBanner {
+    margin: 0;
+    max-width: 50%;
+  }
+  .home-section h1 {
+    font-size: 2rem;
+  }
+  .home-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .contenedorBotones {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 //Home: Beneficios Python
