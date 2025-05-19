@@ -238,6 +238,27 @@ button:active {
   font-size: 3rem;
 }
 
+@media screen and (max-width: 720px) {
+  #porque-python {
+    flex-direction: column-reverse;
+  }
+
+  .porque-python-columna {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .imgPython {
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+
+  #porque-python h1 {
+    font-size: 2.2rem;
+    margin-top: 1rem;
+  }
+}
+
 //Home:Areas de trabajo
 #areas-trabajo h1 {
   font-size: 2rem;
