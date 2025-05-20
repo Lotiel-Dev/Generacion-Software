@@ -15,7 +15,7 @@
         - name: Setup Node-Kar
           uses: actions/setup-node@v4
 
-        - name: Install Dependencies-Kar
+        - name: Install Dependencies
           run: npm install
           working-directory: frontend/angular #darle la ruta del directorio de package.json
 
@@ -23,7 +23,7 @@
           run: npm run build -- --base-href /Generacion-Software/ #RECORDAR poner el nombre del repositorio
           working-directory: frontend/angular #darle la ruta del directorio de package.json
 
-        - name: Artifact upload-Kar
+        - name: Artifact upload
           uses: actions/upload-pages-artifact@v3
           with:
             name: github-pages #siempre poner este nombre, el artifac busca este nombre y si no lo encuentra falla
@@ -36,6 +36,6 @@
         id-token: write
       runs-on: ubuntu-latest
       steps:
-        - name: Deploy to Github-Kar
+        - name: Deploy to Github
           id: deployment
           uses: actions/deploy-pages@v4   
