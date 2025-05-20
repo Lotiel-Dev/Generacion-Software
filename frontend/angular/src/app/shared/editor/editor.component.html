@@ -2,20 +2,23 @@
   <h2>Editor de Código Python</h2>
 
   <div class="editor">
-    <textarea
-      [(ngModel)]="codigo"
-      placeholder="Escribe tu código Python aquí..."
-      spellcheck="false"
-    ></textarea>
+      <ngx-codemirror
+        class="cm-panel"
+        [(ngModel)]="codigo"
+        [options]="cmOptions">
+      </ngx-codemirror>
 
-    <textarea
-      [(ngModel)]="inputs"
-      placeholder="Escribe los inputs aquí..."
-      spellcheck="false"
-    ></textarea>
+      <ngx-codemirror
+        class="cm-panel"
+        [(ngModel)]="inputs"
+        [options]="inputOptions">
+      </ngx-codemirror>
   </div>
 
-  <button (click)="ejecutarCodigo()">Ejecutar</button>
+  <button class="btn-ejecutar" (click)="ejecutarCodigo()">
+    Ejecutar
+  </button>
+
 
   <h3>Output:</h3>
   <pre>{{ output }}</pre>
