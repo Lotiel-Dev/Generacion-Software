@@ -38,4 +38,6 @@ jobs:
 
       - name: Test GET /api/users
         run: curl -f http://localhost:8080/api/users
+      - name: Test GET /api/videos
+        run: curl -f http://localhost:8080/api/videos
 
