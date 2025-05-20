@@ -1,4 +1,21 @@
-/* From Uiverse.io by srinivasaiml */ 
+.container {
+ min-height: 100dvh;
+  background: radial-gradient(
+      circle at center,
+      #000000 0%,
+      rgba(0, 0, 0, 0.8) 25%,
+      rgba(0, 0, 0, 0) 50%
+    ),
+    linear-gradient(
+      to bottom right,
+      #37223e 0%,
+      #272149 30%,
+      #000000 50%,
+      #272149 70%,
+      #37223e 100%
+    );
+  color: white;
+}
 .pill-radio-container {
    --main-color: #ff6ec4;
   --secondary-color: #7873f5;

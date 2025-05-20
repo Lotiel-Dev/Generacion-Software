@@ -1,13 +1,16 @@
 .container {
-    // width:100%;
-    border: 1px solid black;
-    border-radius: 15px;
-    border-color: #999999;
-    padding: 1.5rem 1rem;
-    margin: 1rem 2rem;
-    background-color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border-color: #999999;
+  padding: 1.5rem 1rem;
+  margin: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.statement{
-    color: #999999;
+.statement {
+  color: #999999;
 }
