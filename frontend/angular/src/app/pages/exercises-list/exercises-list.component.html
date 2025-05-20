@@ -6,5 +6,11 @@
   <input name="plan" id="pill-premium" type="radio" />
   <label for="pill-premium">Avanzado</label>
   <div class="pill-indicator"></div>
-  
+</div>
+
+<div class="questions">
+  @for (question of mock; track question.id) {
+    <app-exercise [detail]="question" />
+  }
+
 </div>
