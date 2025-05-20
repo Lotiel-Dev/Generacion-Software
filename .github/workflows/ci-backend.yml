@@ -27,8 +27,17 @@ jobs:
       - name: Install dependencies
         run: go mod tidy
 
-      - name: Run Go tests
-        run: go test ./...
+      - name: Run Go tests with coverage
+        run: go test -coverprofile=coverage.out ./...
+
+      - name: Mostrar porcentaje de cobertura
+        run: go tool cover -func=coverage.out
+
+      - name: Subir reporte de cobertura como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: cobertura-backend
+          path: backend/coverage.out
 
       - name: Start backend (background)
         run: go run main.go &
@@ -38,6 +47,7 @@ jobs:
 
       - name: Test GET /api/users
         run: curl -f http://localhost:8080/api/users
+        
       - name: Test GET /api/videos
         run: curl -f http://localhost:8080/api/videos
 
