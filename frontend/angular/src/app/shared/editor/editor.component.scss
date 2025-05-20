@@ -3,15 +3,7 @@
   flex-direction: column;
   gap: 10px;
 
-  textarea {
-    font-family: 'Courier New', monospace;
-    font-size: 25px;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border: 1px solid #555;
-    width: 100%;
-    height: 400px;
-  }
+
 pre {
   background: #282c34;
   border: 1px solid #444;
@@ -38,7 +30,7 @@ pre {
   background: #1e1e1e;
   overflow: hidden;
 }
-/* Opcional: ajustar el tema material */
+
 .cm-s-material.CodeMirror {
   background: #21252b;
   color: #abb2bf;
