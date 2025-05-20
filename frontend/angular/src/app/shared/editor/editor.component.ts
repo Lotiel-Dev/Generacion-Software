@@ -25,9 +25,9 @@ export class EditorComponent implements OnInit {
     placeholder: 'Escribe tu código…'
   };
 
-  // config para el panel de inputs
+
   inputOptions = {
-    ...this.cmOptions,     // **esto** sí va en TS
+    ...this.cmOptions,    
     mode: 'text/plain',
     lineNumbers: false,
     placeholder: 'Escribe tus inputs…'
