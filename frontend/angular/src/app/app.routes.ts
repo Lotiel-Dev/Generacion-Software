@@ -7,6 +7,7 @@ import { LearningProgressComponent } from './pages/learning-progress/learning-pr
 import { CoursesListComponent } from './pages/courses-list/courses-list.component';
 import { TerminalComponent } from './pages/terminal/terminal.component';
 import { SeeExerciseComponent } from './pages/see-exercise/see-exercise.component';
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
 
@@ -15,7 +16,6 @@ export const routes: Routes = [
   { path: 'lista-videos', component: VideosListComponent },
   { path: 'lista-ejercicios', component: ExercisesListComponent },
   { path: 'exercise/:id', component: SeeExerciseComponent },
-  // { path: '**', redirectTo: 'lista-ejercicios' },
   { path: 'progreso-aprendizaje', component: LearningProgressComponent },
   { path: 'lista-cursos', component: CoursesListComponent },
   { path: 'terminal', component: TerminalComponent },
