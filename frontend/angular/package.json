@@ -20,6 +20,7 @@
     "@ctrl/ngx-codemirror": "^7.0.0",
     "@tsparticles/angular": "^3.0.0",
     "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/slim": "^3.8.1",
     "codemirror": "^5.65.19",
     "jspdf": "^3.0.1",
     "pyodide": "^0.27.5",
