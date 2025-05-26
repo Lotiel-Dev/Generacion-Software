@@ -13,13 +13,19 @@
   }
 
   button {
-    font-size: 24px; 
+    font-size: 24px;
   }
 }
 .editor {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 720px) {
+  .editor {
+    grid-template-columns: auto;
+  }
 }
 .cm-panel {
   border: 1px solid #555;
@@ -33,7 +39,6 @@
   color: #abb2bf;
 }
 
-
 .btn-ejecutar {
   display: inline-flex;
   align-items: center;
@@ -45,7 +50,7 @@
   background-color: #007bff;
   border: none;
   border-radius: 0.375rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: background-color 0.2s, transform 0.1s;
 }
@@ -57,5 +62,3 @@
   background-color: #004085;
   transform: translateY(0);
 }
-
-
