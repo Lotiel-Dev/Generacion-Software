@@ -1,0 +1,42 @@
+name: CI Frontend
+
+on:
+  push:
+    paths:
+      - 'frontend/**'
+  pull_request:
+    paths:
+      - 'frontend/**'
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # usa la misma versión que en tu proyecto
+
+      - name: Cache dependencias
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar Linter
+        run: npm run lint
+
+      - name: Ejecutar pruebas unitarias
+        run: npm run test -- --watch=false --browsers=ChromeHeadless
