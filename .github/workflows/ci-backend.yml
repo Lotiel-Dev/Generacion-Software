@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cobertura-backend
-          path: backend/coverage.out
+          path: coverage.out
 
       - name: Start backend (background)
         run: go run main.go &
