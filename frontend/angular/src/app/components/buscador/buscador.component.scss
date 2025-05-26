@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 
 $primary-color: #007bff;
 $primary-hover: color.adjust($primary-color, $lightness: -10%);
@@ -34,6 +34,14 @@ $shadow-color: rgba(0, 0, 0, 0.05);
       border: 1px solid $border-color;
       border-radius: 6px;
       font-size: 16px;
+      min-width: 500px;
+    }
+
+    @media screen and (max-width: 720px) {
+      .buscador-input {
+        min-width: auto;
+        max-width: fit-content;
+      }
     }
 
     .buscador-boton {
@@ -77,7 +85,7 @@ $shadow-color: rgba(0, 0, 0, 0.05);
   }
 }
 .icono-curso {
-  width: 24px;         // o 20px si prefieres más pequeño
+  width: 24px; // o 20px si prefieres más pequeño
   height: 24px;
   object-fit: contain;
   margin-right: 6px;
