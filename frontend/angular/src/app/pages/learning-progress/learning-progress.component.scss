@@ -1,4 +1,7 @@
 // Nuevas variables de color
+@use 'sass:color';
+
+
 $primary-color: #df881d; // naranja dorado
 $secondary-color: #8a63d2; // lavanda intensa
 $background-dark: #000000; // fondo negro total
@@ -418,7 +421,7 @@ section {
   transition: background 0.3s ease;
   
   &:hover {
-    background: lighten($primary-color, 10%);
+    background: color.adjust($primary-color, $lightness: 10%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
