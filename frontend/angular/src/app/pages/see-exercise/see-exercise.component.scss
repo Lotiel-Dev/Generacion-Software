@@ -1,6 +1,4 @@
-
-@use 'sass:color';
-
+@use "sass:color";
 
 // Variables
 $primary-color: #83bdff;
@@ -92,6 +90,12 @@ $runtime-error-color: #9c27b0;
   .tab-content {
     display: flex;
     gap: 30px;
+  }
+
+  @media screen and (max-width: 720px) {
+    .tab-content {
+      flex-wrap: wrap-reverse;
+    }
   }
 
   // Pestaña de problema
