@@ -1,6 +1,4 @@
-
-@use 'sass:color';
-
+@use "sass:color";
 
 // Variables
 $primary-color: #83bdff;
@@ -94,6 +92,12 @@ $runtime-error-color: #9c27b0;
     gap: 30px;
   }
 
+  @media screen and (max-width: 720px) {
+    .tab-content {
+      flex-wrap: wrap-reverse;
+    }
+  }
+
   // Pestaña de problema
   .main-content {
     flex: 1;
@@ -166,7 +170,7 @@ $runtime-error-color: #9c27b0;
 
   // Sidebar
   .sidebar {
-    width: 300px;
+    max-width: 300px;
     flex-shrink: 0;
 
     .info-card {
@@ -238,6 +242,7 @@ $runtime-error-color: #9c27b0;
   // Pestaña de envíos
   .submissions-container {
     width: 100%;
+    overflow: auto;
 
     h3 {
       margin-top: 0;
