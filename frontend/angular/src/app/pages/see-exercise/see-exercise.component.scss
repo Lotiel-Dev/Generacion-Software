@@ -170,7 +170,7 @@ $runtime-error-color: #9c27b0;
 
   // Sidebar
   .sidebar {
-    width: 300px;
+    max-width: 300px;
     flex-shrink: 0;
 
     .info-card {
@@ -242,6 +242,7 @@ $runtime-error-color: #9c27b0;
   // Pestaña de envíos
   .submissions-container {
     width: 100%;
+    overflow: auto;
 
     h3 {
       margin-top: 0;
