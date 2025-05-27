@@ -127,29 +127,6 @@ button:active {
   margin: 2rem auto;
 }
 
-@media screen and (max-width: 720px) {
-  #banner {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-
-  .imgBanner {
-    margin: 0;
-    max-width: 50%;
-  }
-  .home-section h1 {
-    font-size: 4rem;
-  }
-  .home-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .contenedorBotones {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
 //Home: Beneficios Python
 .beneficios {
   text-align: center;
@@ -209,19 +186,6 @@ button:active {
 .beneficios-card p {
   font-size: 1rem;
   color: #b3c4cb;
-}
-
-@media screen and (max-width: 720px) {
-  .beneficios-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .beneficios-card {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 15px;
-  }
 }
 
 #porque-python {
@@ -291,79 +255,6 @@ button:active {
     }
   }
 }
-@media screen and (max-width: 1024px) {
-  #porque-python {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    .porque-python-columna {
-      max-width: 100%;
-    }
-    .imgPython {
-      max-width: 300px;
-      order: -1;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  #porque-python {
-    padding: 40px 15px;
-    .porque-python-titulo {
-      margin-bottom: 40px;
-      h1 {
-        font-size: 2.5rem;
-      }
-      h2 {
-        font-size: 1.1rem;
-      }
-    }
-    .porque-python-columna {
-      gap: 30px;
-      .porque-python-section {
-        gap: 20px;
-        .numero {
-          min-width: 70px;
-          height: 70px;
-          border-radius: 16px;
-          h2 {
-            font-size: 1.6rem;
-          }
-        }
-        div:last-child {
-          h2 {
-            font-size: 1.5rem;
-          }
-          p {
-            font-size: 0.95rem;
-          }
-        }
-      }
-    }
-    .imgPython {
-      max-width: 250px;
-    }
-  }
-}
-@media screen and (max-width: 480px) {
-  #porque-python {
-    .porque-python-section {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 15px;
-
-      .numero {
-        min-width: 60px;
-        height: 60px;
-
-        h2 {
-          font-size: 1.4rem;
-        }
-      }
-    }
-  }
-}
-
 //Home:Areas de trabajo
 #areas-trabajo h1 {
   font-size: 3rem;
@@ -475,4 +366,195 @@ button:active {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 720px) {
+  #banner {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .imgBanner {
+    margin: 0;
+    max-width: 50%;
+  }
+  .home-section h2 {
+    font-size: 1.5rem;
+  }
+  .contenedorBotones {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .text {
+    text-align: center;
+  }
+  .beneficios-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .beneficios-card {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 15px;
+  }
+  .home-section {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+  #porque-python {
+    padding: 40px 15px;
+    .porque-python-titulo {
+      margin-bottom: 40px;
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+    .porque-python-columna {
+      gap: 30px;
+      .porque-python-section {
+        gap: 20px;
+        .numero {
+          min-width: 70px;
+          height: 70px;
+          border-radius: 16px;
+          h2 {
+            font-size: 1.6rem;
+          }
+        }
+        div:last-child {
+          h2 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+    .imgPython {
+      max-width: 250px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 0;
+    width: 100%;
+  }
+  .home-section h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  .home-section h2 {
+    font-size: 1.2rem;
+  }
+  .banner-text {
+    max-width: 100%;
+  }
+  .intro2 {
+    margin-bottom: 1rem;
+  }
+  .contenedorBotones {
+    flex-direction: row;
+    justify-content: start;
+    gap: 1rem;
+    .text {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+  .beneficios {
+    padding: 30px 20px;
+    h2 {
+      margin: 15px 0;
+    }
+    .beneficios-titulo {
+      margin-bottom: 30px;
+    }
+    .beneficios-cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      .card-row {
+        gap: 0;
+      }
+      .beneficios-card {
+        padding: 10px 15px;
+        .icono {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          height: 20px;
+          margin-top: 10px;
+          h1 {
+            font-size: 2rem;
+            width: 10%;
+          }
+          h2 {
+            width: 70%;
+            margin-left: 10px;
+          }
+        }
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  #banner {
+    padding: 0 20px;
+  }
+  #porque-python {
+    padding: 0 20px;
+    margin: 0;
+    .porque-python-titulo {
+      margin-bottom: 20px;
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+    .porque-python-section {
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      .numero {
+        max-width: 2rem;
+        max-height: 2rem;
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .imgPython {
+      display: none;
+    }
+  }
+  #areas-trabajo {
+    padding: 20px;
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .scroll-contenedor {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .work-areas-card {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
 }
