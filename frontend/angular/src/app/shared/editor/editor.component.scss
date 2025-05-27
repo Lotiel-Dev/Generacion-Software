@@ -55,7 +55,6 @@
       }
     }
   }
-
   .btn-ejecutar {
     align-items: center;
     background-color: #df881d;
@@ -121,4 +120,29 @@
 }
 ::ng-deep .CodeMirror-placeholder {
   color: #abb2bf !important;
+}
+
+@media screen and (max-width: 768px) {
+  .editor-container {
+    height: auto;
+    h2 {
+      font-size: 1.2rem;
+    }
+    .editor {
+      flex-direction: column;
+      height: auto;
+      .cm-panel {
+        width: 100%;
+        height: 300px;
+      }
+      .output-panel {
+        width: 100%;
+        height: auto;
+        .section {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+  
 }
