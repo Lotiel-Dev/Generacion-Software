@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +6,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit {
-  constructor() {}
-
   ngAfterViewInit(): void {
     this.adjustCarouselAnimation();
 
@@ -20,50 +18,47 @@ export class HomeComponent implements AfterViewInit {
     const scrollContainer = document.querySelector(
       '.auto-scroll'
     ) as HTMLElement;
-    if (scrollContainer) {
-      const cards = scrollContainer.querySelectorAll('.work-areas-card');
-      const cardWidth = cards[0].clientWidth;
-      const gap = 20;
 
-      const containerWidth =
-        scrollContainer.parentElement?.clientWidth || window.innerWidth;
+    if (!scrollContainer) return;
 
-      document.documentElement.style.setProperty(
-        '--scroll-distance',
-        `${-(cardWidth + gap) * (cards.length / 2)}px`
+    const cards = scrollContainer.querySelectorAll('.work-areas-card');
+    if (!cards.length) return;
+
+    const cardWidth = cards[0].clientWidth;
+    const gap = 20;
+
+    const scrollDistance = -(cardWidth + gap) * (cards.length / 2);
+    document.documentElement.style.setProperty(
+      '--scroll-distance',
+      `${scrollDistance}px`
+    );
+
+    const styleSheet = document.styleSheets[0];
+    let keyframesRule: CSSKeyframesRule | null = null;
+
+    for (const rule of styleSheet.cssRules) {
+      if (
+        rule.type === CSSRule.KEYFRAMES_RULE &&
+        (rule as CSSKeyframesRule).name === 'autoScroll'
+      ) {
+        keyframesRule = rule as CSSKeyframesRule;
+        break;
+      }
+    }
+
+    if (keyframesRule) {
+      keyframesRule.deleteRule('100%');
+      keyframesRule.appendRule(
+        `100% { transform: translateX(${scrollDistance}px); }`
       );
-
-      const styleSheet = document.styleSheets[0];
-      let keyframesRule: CSSKeyframesRule | null = null;
-
-      for (const rule of styleSheet.cssRules) {
-        if (
-          rule.type === CSSRule.KEYFRAMES_RULE &&
-          (rule as CSSKeyframesRule).name === 'autoScroll'
-        ) {
-          keyframesRule = rule as CSSKeyframesRule;
-          break;
+    } else {
+      const animationText = `
+        @keyframes autoScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(${scrollDistance}px); }
         }
-      }
-
-      if (keyframesRule) {
-        keyframesRule.deleteRule('100%');
-        keyframesRule.appendRule(
-          `100% { transform: translateX(${
-            -(cardWidth + gap) * (cards.length / 2)
-          }px); }`
-        );
-      } else {
-        const animationText = `
-          @keyframes autoScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(${
-              -(cardWidth + gap) * (cards.length / 2)
-            }px); }
-          }
-        `;
-        styleSheet.insertRule(animationText, styleSheet.cssRules.length);
-      }
+      `;
+      styleSheet.insertRule(animationText, styleSheet.cssRules.length);
     }
   }
 }

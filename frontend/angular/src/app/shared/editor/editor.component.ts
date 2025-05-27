@@ -1,3 +1,4 @@
+// EditorComponent.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -34,23 +35,21 @@ export class EditorComponent implements OnInit {
     placeholder: 'Escribe tus inputs…',
   };
 
-  pyodide: unknown;
+  pyodide: PyodideInterface | null = null;
 
   async ngOnInit(): Promise<void> {
-    // @ts-expect-error: `loadPyodide` es global y no está tipado aquí
+    // @ts-expect-error: `loadPyodide` es una función global no tipada aquí
     this.pyodide = await loadPyodide();
     console.log('Pyodide cargado desde CDN');
   }
 
   async ejecutarCodigo(): Promise<void> {
-    if (typeof this.pyodide !== 'object' || this.pyodide === null) {
+    if (!this.pyodide) {
       this.output = 'Pyodide no está cargado correctamente.';
       return;
     }
 
     try {
-      const pyodide = this.pyodide as any;
-
       const inputLines = this.inputs.split('\n');
       let inputIndex = 0;
 
@@ -61,19 +60,27 @@ export class EditorComponent implements OnInit {
         return inputLines[inputIndex++];
       };
 
-      pyodide.globals.set('input', inputFunction);
+      this.pyodide.globals.set('input', inputFunction);
 
       this.output = '';
 
-      pyodide.setStdout({
+      this.pyodide.setStdout({
         batched: (text: string) => {
           this.output += text;
         },
       });
 
-      await pyodide.runPythonAsync(this.codigo);
+      await this.pyodide.runPythonAsync(this.codigo);
     } catch (error) {
       this.output = `Error: ${String(error)}`;
     }
   }
+}
+
+interface PyodideInterface {
+  globals: {
+    set: (key: string, value: unknown) => void;
+  };
+  setStdout: (options: { batched: (text: string) => void }) => void;
+  runPythonAsync: (code: string) => Promise<void>;
 }
