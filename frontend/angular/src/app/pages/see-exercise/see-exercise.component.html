@@ -18,25 +18,37 @@
   <div class="main-layout">
     <!-- Contenido principal -->
     <div class="main-content">
-      <div class="tabs">
+      <div class="tabs" role="tablist">
         <div
           class="tab"
           [class.active]="activeTab === 'problem'"
+          role="tab"
+          tabindex="0"
+          [attr.aria-selected]="activeTab === 'problem'"
           (click)="setActiveTab('problem')"
+          (keydown)="handleKeydown($event, 'problem')"
         >
           Problema
         </div>
         <div
           class="tab"
           [class.active]="activeTab === 'submit'"
+          role="tab"
+          tabindex="0"
+          [attr.aria-selected]="activeTab === 'submit'"
           (click)="setActiveTab('submit')"
+          (keydown)="handleKeydown($event, 'submit')"
         >
           Enviar
         </div>
         <div
           class="tab"
           [class.active]="activeTab === 'submissions'"
+          role="tab"
+          tabindex="0"
+          [attr.aria-selected]="activeTab === 'submissions'"
           (click)="setActiveTab('submissions')"
+          (keydown)="handleKeydown($event, 'submissions')"
         >
           Mis Envíos
         </div>

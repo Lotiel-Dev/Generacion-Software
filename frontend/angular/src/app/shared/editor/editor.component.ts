@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CodemirrorModule } from '@ctrl/ngx-codemirror';
+
 @Component({
   selector: 'app-editor',
   standalone: true,
@@ -10,9 +11,10 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
   styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
-  codigo: string = '';
-  inputs: string = '';
-  output: string = '';
+  codigo = '';
+  inputs = '';
+  output = '';
+
   cmOptions = {
     mode: 'python',
     theme: 'material',
@@ -32,41 +34,46 @@ export class EditorComponent implements OnInit {
     placeholder: 'Escribe tus inputs…',
   };
 
-  pyodide: any;
+  pyodide: unknown;
 
-  async ngOnInit() {
-    // @ts-ignore
+  async ngOnInit(): Promise<void> {
+    // @ts-expect-error: `loadPyodide` es global y no está tipado aquí
     this.pyodide = await loadPyodide();
     console.log('Pyodide cargado desde CDN');
   }
 
-  async ejecutarCodigo() {
+  async ejecutarCodigo(): Promise<void> {
+    if (typeof this.pyodide !== 'object' || this.pyodide === null) {
+      this.output = 'Pyodide no está cargado correctamente.';
+      return;
+    }
+
     try {
+      const pyodide = this.pyodide as any;
+
       const inputLines = this.inputs.split('\n');
       let inputIndex = 0;
 
-      const inputFunction = (prompt = '') => {
+      const inputFunction = () => {
         if (inputIndex >= inputLines.length) {
           throw new Error('No hay más inputs disponibles');
         }
-        const value = inputLines[inputIndex];
-        inputIndex++;
-        return value;
+        return inputLines[inputIndex++];
       };
 
-      this.pyodide.globals.set('input', inputFunction);
+      pyodide.globals.set('input', inputFunction);
 
       this.output = '';
 
-      this.pyodide.setStdout({
+      pyodide.setStdout({
         batched: (text: string) => {
           this.output += text;
         },
       });
 
-      await this.pyodide.runPythonAsync(this.codigo);
+      await pyodide.runPythonAsync(this.codigo);
     } catch (error) {
-      this.output = `Error: ${error}`;
+      this.output = `Error: ${String(error)}`;
     }
   }
 }

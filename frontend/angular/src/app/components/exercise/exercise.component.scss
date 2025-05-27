@@ -10,16 +10,20 @@
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.104);
   }
   min-width: 1000px;
+  display: flex;
+  
 }
 h2 {
   font-size: 1.25rem;
   color: #ffffff;
   margin-bottom: 0.5rem;
   font-weight: 600;
+  text-align: left;
 }
 p {
   font-size: 1rem;
   color: #b3c4cb;
   margin-bottom: 1rem;
   font-weight: 400;
+  text-align: left;
 }

@@ -107,4 +107,13 @@ export class SeeExerciseComponent implements OnInit {
         console.error('Error al copiar texto: ', err);
       });
   }
+  handleKeydown(
+    event: KeyboardEvent,
+    tab: 'problem' | 'submit' | 'submissions'
+  ): void {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.setActiveTab(tab);
+      event.preventDefault();
+    }
+  }
 }
