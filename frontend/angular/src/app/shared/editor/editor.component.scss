@@ -2,14 +2,12 @@
   flex-direction: column;
   gap: 10px;
   height: 100vh;
-
   .editor {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     min-width: 100%;
     height: 70vh;
-
     .cm-panel {
       border: 1px solid #ffffff32;
       border-radius: 12px;
@@ -17,24 +15,20 @@
       width: 70%;
       height: 100%;
     }
-
     .output-panel {
       flex: 1;
       display: flex;
       flex-direction: column;
       height: 100%;
-
       .section {
         flex: 1;
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
         min-height: 0;
-
         &:last-child {
           margin-bottom: 0;
         }
-
         h3 {
           font-size: 1.2rem;
           margin-bottom: 0.5rem;
@@ -82,13 +76,11 @@
     margin: 30px auto;
     flex-shrink: 0;
   }
-
   button:active,
   button:hover {
     outline: 0;
     color: #2e2143;
   }
-
   button span {
     background-color: #2e2143;
     padding: 16px 24px;
@@ -106,12 +98,10 @@
     transform: scale(0.9);
   }
 }
-
 .cm-s-material.CodeMirror {
   background: #181335;
   color: #abb2bf;
 }
-
 ::ng-deep .CodeMirror {
   background-color: #181335 !important;
   color: #abb2bf !important;
@@ -119,20 +109,16 @@
   border-radius: 8px;
   height: 100%;
 }
-
 ::ng-deep .CodeMirror-gutters {
   background-color: #181335 !important;
   border-right: 1px solid #ffffff32;
 }
-
 ::ng-deep .CodeMirror-linenumber {
   color: #abb2bf !important;
 }
-
 ::ng-deep .CodeMirror-cursor {
   border-left: 1px solid #ffffff32 !important;
 }
-
 ::ng-deep .CodeMirror-placeholder {
   color: #abb2bf !important;
 }
