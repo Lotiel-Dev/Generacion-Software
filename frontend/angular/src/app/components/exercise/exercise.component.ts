@@ -21,4 +21,11 @@ export class ExerciseComponent {
   navigateToExercise() {
     this.router.navigate(['/exercise', this.detail.id]);
   }
+
+  convertir(valor: string): string {
+    if (valor.length >= 40) {
+      return valor.slice(0, 40) + '...';
+    }
+    return valor;
+  }
 }

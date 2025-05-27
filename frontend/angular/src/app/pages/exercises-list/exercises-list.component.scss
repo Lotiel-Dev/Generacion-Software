@@ -89,11 +89,12 @@ label[for="pill-premium"]:hover {
   transform: translateX(200%);
   background: linear-gradient(to right, var(--hard-color), var(--hard-color));
 }
-
 .questions {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem 0rem;
+  padding: 0.5rem;
+  gap: 1rem;
 }
