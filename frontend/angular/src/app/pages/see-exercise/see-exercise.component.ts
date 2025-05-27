@@ -26,14 +26,20 @@ export class SeeExerciseComponent implements OnInit {
   // Datos del ejercicio (simulados)
   exercise = {
     id: 'A123',
-    title: 'Suma de dos números',
+    title: 'Build an Array',
     difficulty: 'Easy',
-    timeLimit: '1 segundo',
-    memoryLimit: '256 MB',
-    description: 'Dados dos números enteros A y B, calcula su suma.',
-    inputDescription:
-      'La primera línea contiene dos enteros A y B (1 ≤ A, B ≤ 10^9).',
-    outputDescription: 'Imprime un solo entero: la suma de A y B.',
+    timeLimit: '1 second',
+    memoryLimit: '512 megabytes',
+    description:
+      'Yesterday, Dima found an empty array and decided to add some integers to it. He can perform the following operation an unlimited number of times: add any integer to the left or right end of the array. then, as long as there is a pair of identical adjacent elements in the array, they will be replaced by their sum. It can be shown that there can be at most one such pair in the array at the same time. /n For example, if the array is [3,6,4] and we add the number 3 to the left, the array will first become [3,3,6,4], then the first two elements will be replaced by 6, and the array will become [6,6,4], and then — [12,4].',
+    inputDescription: `The first line contains a single integer t (1≤t≤10^4) — the number of test cases. The descriptions of the test cases follow.
+      The first line of each test case description contains two integers n and k (1≤n≤10^5, n≤k≤10^6) — the length of the resulting array and the number of operations.
+      The second line contains n integers ai (1≤ai≤10^9, ai−1≠ai) — the elements of the resulting array.
+      It is guaranteed that the sum of the values of n across all test cases does not exceed 10^5.`,
+
+    outputDescription: `For each test case, if there is no suitable sequence of operations of length k, output "NO". Otherwise, output "YES".
+      You may output "YES" and "NO" in any case (for example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as a positive answer).`,
+
     topics: ['Matemáticas', 'Implementación'],
     materials: ['Aritmética Básica'],
     examples: [

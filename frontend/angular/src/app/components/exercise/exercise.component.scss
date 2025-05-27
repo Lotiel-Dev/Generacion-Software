@@ -1,16 +1,25 @@
 .container {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  border-color: #999999;
-  padding: 1.5rem 1rem;
-  margin: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff32;
+  padding: 1rem;
+  margin: 0.5rem;
+  background: #2e2143;
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.104);
   }
+  min-width: 1000px;
 }
-
-.statement {
-  color: #999999;
+h2 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+p {
+  font-size: 1rem;
+  color: #b3c4cb;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }

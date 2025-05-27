@@ -1,187 +1,216 @@
 <div class="exercise-container">
-  <!-- Barra Superior -->
   <div class="top-bar">
-    <button (click)="goBack()" class="btn-volver">⬅ Volver</button>
-    <h1 class="exercise-title">{{ exercise.id }}. {{ exercise.title }}</h1>
-  </div>
-
-  <!-- Sistema de pestañas -->
-  <div class="tabs">
-    <div
-      class="tab"
-      [class.active]="activeTab === 'problem'"
-      (click)="setActiveTab('problem')"
-    >
-      Problema
-    </div>
-    <div
-      class="tab"
-      [class.active]="activeTab === 'submit'"
-      (click)="setActiveTab('submit')"
-    >
-      Enviar
-    </div>
-    <div
-      class="tab"
-      [class.active]="activeTab === 'submissions'"
-      (click)="setActiveTab('submissions')"
-    >
-      Mis Envíos
+    <button (click)="goBack()" class="btn-volver">< Volver a ejercicios</button>
+    <div class="title-section">
+      <h1 class="exercise-title">{{ exercise.title }}</h1>
+      <span
+        class="difficulty-badge"
+        [ngClass]="{
+          easy: exercise.difficulty === 'Easy',
+          medium: exercise.difficulty === 'Medium',
+          hard: exercise.difficulty === 'Hard'
+        }"
+      >
+        {{ exercise.difficulty }}
+      </span>
     </div>
   </div>
+  <div class="main-layout">
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <div class="tabs">
+        <div
+          class="tab"
+          [class.active]="activeTab === 'problem'"
+          (click)="setActiveTab('problem')"
+        >
+          Problema
+        </div>
+        <div
+          class="tab"
+          [class.active]="activeTab === 'submit'"
+          (click)="setActiveTab('submit')"
+        >
+          Enviar
+        </div>
+        <div
+          class="tab"
+          [class.active]="activeTab === 'submissions'"
+          (click)="setActiveTab('submissions')"
+        >
+          Mis Envíos
+        </div>
+      </div>
 
-  <!-- Contenido principal -->
-  <div class="content-area">
-    <!-- Pestaña: Problema -->
-    <div class="tab-content" *ngIf="activeTab === 'problem'">
-      <div class="main-content">
-        <div class="problem-statement">
-          <div class="section">
-            <h3>Descripción</h3>
-            <p>{{ exercise.description }}</p>
-          </div>
+      <div class="content-area">
+        <!-- Pestaña: Problema -->
+        <div class="tab-content" *ngIf="activeTab === 'problem'">
+          <div class="problem-content">
+            <div class="section">
+              <p>{{ exercise.description }}</p>
+            </div>
 
-          <div class="section">
-            <h3>Entrada</h3>
-            <p>{{ exercise.inputDescription }}</p>
-          </div>
+            <div class="section">
+              <h3>Input</h3>
+              <p>{{ exercise.inputDescription }}</p>
 
-          <div class="section">
-            <h3>Salida</h3>
-            <p>{{ exercise.outputDescription }}</p>
-          </div>
+              <h3>Output</h3>
+              <p>{{ exercise.outputDescription }}</p>
+            </div>
 
-          <div class="section examples">
-            <h3>Ejemplos</h3>
-            <div
-              class="example"
-              *ngFor="let example of exercise.examples; let i = index"
-            >
-              <div class="example-header">
-                <span>Ejemplo {{ i + 1 }}</span>
-                <div class="example-actions">
-                  <button
-                    class="copy-btn"
-                    (click)="copyText(example.input)"
-                    title="Copiar entrada"
-                  >
-                    📋 Copiar entrada
-                  </button>
+            <div class="section examples">
+              <h3>Examples</h3>
+              <div
+                class="example"
+                *ngFor="let example of exercise.examples; let i = index"
+              >
+                <div class="example-header">
+                  <span>Ejemplo {{ i + 1 }}</span>
+                </div>
+
+                <div class="example-input">
+                  <div class="input-label">
+                    <div class="label">Entrada:</div>
+                    <button
+                      class="copy-btn"
+                      (click)="copyText(example.input)"
+                      title="Copiar entrada"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+                  <pre>{{ example.input }}</pre>
+                </div>
+
+                <div class="example-output">
+                  <div class="input-label">
+                    <div class="label">Salida:</div>
+                    <button
+                      class="copy-btn"
+                      (click)="copyText(example.output)"
+                      title="Copiar salida"
+                    >
+                      📋 Copiar
+                    </button>
+                  </div>
+                  <pre>{{ example.output }}</pre>
+                </div>
+
+                <div class="example-explanation" *ngIf="example.explanation">
+                  <div class="label">Explicación:</div>
+                  <p>{{ example.explanation }}</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="example-input">
-                <div class="label">Entrada:</div>
-                <pre>{{ example.input }}</pre>
-              </div>
+        <!-- Pestaña: Enviar -->
+        <div class="tab-content" *ngIf="activeTab === 'submit'">
+          <div class="submit-container">
+            <app-editor></app-editor>
+          </div>
+        </div>
 
-              <div class="example-output">
-                <div class="label">Salida:</div>
-                <pre>{{ example.output }}</pre>
-              </div>
+        <!-- Pestaña: Mis Envíos -->
+        <div class="tab-content" *ngIf="activeTab === 'submissions'">
+          <div class="submissions-container">
+            <h3>Historial de envíos</h3>
 
-              <div class="example-explanation" *ngIf="example.explanation">
-                <div class="label">Explicación:</div>
-                <p>{{ example.explanation }}</p>
-              </div>
+            <table class="submissions-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fecha</th>
+                  <th>Estado</th>
+                  <th>Tiempo</th>
+                  <th>Memoria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let sub of submissions"
+                  [ngClass]="{
+                    accepted: sub.status === 'Accepted',
+                    'wrong-answer': sub.status === 'Wrong Answer',
+                    'time-limit': sub.status === 'Time Limit Exceeded',
+                    'runtime-error': sub.status === 'Runtime Error'
+                  }"
+                >
+                  <td>{{ sub.id }}</td>
+                  <td>{{ sub.submittedAt | date : "dd/MM/yyyy HH:mm" }}</td>
+                  <td class="status">{{ sub.status }}</td>
+                  <td>{{ sub.executionTime }}</td>
+                  <td>{{ sub.memory }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="no-submissions" *ngIf="submissions.length === 0">
+              <p>No has realizado envíos para este ejercicio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar derecho -->
+    <div class="sidebar">
+      <!-- Temas requeridos -->
+      <div class="info-card topics-card">
+        <h4>📚 Temas</h4>
+        <div class="topics-list">
+          <div class="topic-item" *ngFor="let topic of exercise.topics">
+            <span class="topic-dot"></span>
+            <div class="topic-content">
+              <span class="topic-name">{{ topic }}</span>
+              <span class="topic-description"
+                >Concepto fundamental que necesitas dominar para resolver este
+                ejercicio</span
+              >
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Columna lateral -->
-      <div class="sidebar">
-        <div class="info-card">
-          <div class="info-item">
-            <span class="info-label">Dificultad:</span>
-            <span
-              class="info-value"
-              [ngClass]="{
-                easy: exercise.difficulty === 'Easy',
-                medium: exercise.difficulty === 'Medium',
-                hard: exercise.difficulty === 'Hard'
-              }"
-            >
-              {{ exercise.difficulty }}
-            </span>
-          </div>
+      <!-- Consejo -->
+      <div class="info-card advice-card">
+        <h4>💡 Consejo</h4>
+        <p>
+          Asegúrate de entender cada tema antes de comenzar. Si necesitas
+          repasar algún concepto, revisa la documentación oficial de Python.
+        </p>
+      </div>
 
-          <div class="info-item">
-            <span class="info-label">Límite de tiempo:</span>
-            <span class="info-value">{{ exercise.timeLimit }}</span>
-          </div>
+      <!-- Objetivo -->
+      <div class="info-card objective-card">
+        <h4>🎯 Objetivo</h4>
+        <p>
+          Al completar este ejercicio habrás fortalecido tu comprensión de estos
+          conceptos fundamentales de Python.
+        </p>
+      </div>
 
-          <div class="info-item">
-            <span class="info-label">Límite de memoria:</span>
-            <span class="info-value">{{ exercise.memoryLimit }}</span>
-          </div>
+      <!-- Información técnica -->
+      <div class="info-card technical-card">
+        <div class="info-item">
+          <span class="info-label">Límite de tiempo:</span>
+          <span class="info-value">{{ exercise.timeLimit }}</span>
         </div>
-
-        <div class="info-card">
-          <h4>Temas</h4>
-          <div class="tag-list">
-            <span class="tag" *ngFor="let topic of exercise.topics">{{
-              topic
-            }}</span>
-          </div>
-        </div>
-
-        <div
-          class="info-card"
-          *ngIf="exercise.materials && exercise.materials.length > 0"
-        >
-          <h4>Material de estudio</h4>
-          <ul class="materials-list">
-            <li *ngFor="let material of exercise.materials">{{ material }}</li>
-          </ul>
+        <div class="info-item">
+          <span class="info-label">Límite de memoria:</span>
+          <span class="info-value">{{ exercise.memoryLimit }}</span>
         </div>
       </div>
-    </div>
 
-    <!-- Pestaña: Enviar -->
-    <div class="tab-content" *ngIf="activeTab === 'submit'">
-      <div class="submit-container">
-        <app-editor></app-editor>
-      </div>
-    </div>
-
-    <!-- Pestaña: Mis Envíos -->
-    <div class="tab-content" *ngIf="activeTab === 'submissions'">
-      <div class="submissions-container">
-        <h3>Historial de envíos</h3>
-
-        <table class="submissions-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Fecha</th>
-              <th>Estado</th>
-              <th>Tiempo</th>
-              <th>Memoria</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              *ngFor="let sub of submissions"
-              [ngClass]="{
-                accepted: sub.status === 'Accepted',
-                'wrong-answer': sub.status === 'Wrong Answer',
-                'time-limit': sub.status === 'Time Limit Exceeded',
-                'runtime-error': sub.status === 'Runtime Error'
-              }"
-            >
-              <td>{{ sub.id }}</td>
-              <td>{{ sub.submittedAt | date : "dd/MM/yyyy HH:mm" }}</td>
-              <td>{{ sub.status }}</td>
-              <td>{{ sub.executionTime }}</td>
-              <td>{{ sub.memory }}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="no-submissions" *ngIf="submissions.length === 0">
-          <p>No has realizado envíos para este ejercicio.</p>
-        </div>
+      <div
+        class="info-card"
+        *ngIf="exercise.materials && exercise.materials.length > 0"
+      >
+        <h4>Material de estudio</h4>
+        <ul class="materials-list">
+          <li *ngFor="let material of exercise.materials">{{ material }}</li>
+        </ul>
       </div>
     </div>
   </div>
