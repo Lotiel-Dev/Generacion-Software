@@ -55,120 +55,24 @@
       </div>
 
       <div class="content-area">
-        <!-- Pestaña: Problema -->
         <div class="tab-content" *ngIf="activeTab === 'problem'">
-          <div class="problem-content">
-            <div class="section">
-              <p>{{ exercise.description }}</p>
-            </div>
-
-            <div class="section">
-              <h3>Input</h3>
-              <p>{{ exercise.inputDescription }}</p>
-
-              <h3>Output</h3>
-              <p>{{ exercise.outputDescription }}</p>
-            </div>
-
-            <div class="section examples">
-              <h3>Examples</h3>
-              <div
-                class="example"
-                *ngFor="let example of exercise.examples; let i = index"
-              >
-                <div class="example-header">
-                  <span>Ejemplo {{ i + 1 }}</span>
-                </div>
-
-                <div class="example-input">
-                  <div class="input-label">
-                    <div class="label">Entrada:</div>
-                    <button
-                      class="copy-btn"
-                      (click)="copyText(example.input)"
-                      title="Copiar entrada"
-                    >
-                      📋 Copiar
-                    </button>
-                  </div>
-                  <pre>{{ example.input }}</pre>
-                </div>
-
-                <div class="example-output">
-                  <div class="input-label">
-                    <div class="label">Salida:</div>
-                    <button
-                      class="copy-btn"
-                      (click)="copyText(example.output)"
-                      title="Copiar salida"
-                    >
-                      📋 Copiar
-                    </button>
-                  </div>
-                  <pre>{{ example.output }}</pre>
-                </div>
-
-                <div class="example-explanation" *ngIf="example.explanation">
-                  <div class="label">Explicación:</div>
-                  <p>{{ example.explanation }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <app-problem [exercise]="exercise"></app-problem>
         </div>
 
-        <!-- Pestaña: Enviar -->
         <div class="tab-content" *ngIf="activeTab === 'submit'">
-          <div class="submit-container">
-            <app-editor></app-editor>
-          </div>
+          <app-submit
+            (solutionSubmitted)="onSolutionSubmitted($event)"
+          ></app-submit>
         </div>
 
         <!-- Pestaña: Mis Envíos -->
         <div class="tab-content" *ngIf="activeTab === 'submissions'">
-          <div class="submissions-container">
-            <h3>Historial de envíos</h3>
-
-            <table class="submissions-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Fecha</th>
-                  <th>Estado</th>
-                  <th>Tiempo</th>
-                  <th>Memoria</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  *ngFor="let sub of submissions"
-                  [ngClass]="{
-                    accepted: sub.status === 'Accepted',
-                    'wrong-answer': sub.status === 'Wrong Answer',
-                    'time-limit': sub.status === 'Time Limit Exceeded',
-                    'runtime-error': sub.status === 'Runtime Error'
-                  }"
-                >
-                  <td>{{ sub.id }}</td>
-                  <td>{{ sub.submittedAt | date : "dd/MM/yyyy HH:mm" }}</td>
-                  <td class="status">{{ sub.status }}</td>
-                  <td>{{ sub.executionTime }}</td>
-                  <td>{{ sub.memory }}</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="no-submissions" *ngIf="submissions.length === 0">
-              <p>No has realizado envíos para este ejercicio.</p>
-            </div>
-          </div>
+          <app-submissions [submissions]="submissions"></app-submissions>
         </div>
       </div>
     </div>
 
-    <!-- Sidebar derecho -->
     <div class="sidebar">
-      <!-- Temas requeridos -->
       <div class="info-card topics-card">
         <h4>📚 Temas</h4>
         <div class="topics-list">
@@ -185,25 +89,6 @@
         </div>
       </div>
 
-      <!-- Consejo -->
-      <div class="info-card advice-card">
-        <h4>💡 Consejo</h4>
-        <p>
-          Asegúrate de entender cada tema antes de comenzar. Si necesitas
-          repasar algún concepto, revisa la documentación oficial de Python.
-        </p>
-      </div>
-
-      <!-- Objetivo -->
-      <div class="info-card objective-card">
-        <h4>🎯 Objetivo</h4>
-        <p>
-          Al completar este ejercicio habrás fortalecido tu comprensión de estos
-          conceptos fundamentales de Python.
-        </p>
-      </div>
-
-      <!-- Información técnica -->
       <div class="info-card technical-card">
         <div class="info-item">
           <span class="info-label">Límite de tiempo:</span>

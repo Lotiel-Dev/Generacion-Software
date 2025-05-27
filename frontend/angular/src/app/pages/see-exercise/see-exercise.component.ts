@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { EditorComponent } from '../../shared/editor/editor.component';
+import { ProblemComponent } from './tabs/problem/problem.component';
+import { SubmitComponent } from './tabs/submit/submit.component';
+import { SubmissionsComponent } from './tabs/submissions/submissions.component';
 
 interface ExerciseSubmission {
   id: number;
@@ -12,19 +14,41 @@ interface ExerciseSubmission {
   memory: string;
 }
 
+interface Exercise {
+  id: string;
+  title: string;
+  difficulty: string;
+  timeLimit: string;
+  memoryLimit: string;
+  description: string;
+  inputDescription: string;
+  outputDescription: string;
+  topics: string[];
+  materials: string[];
+  examples: {
+    input: string;
+    output: string;
+    explanation?: string;
+  }[];
+}
+
 @Component({
   selector: 'app-see-exercise',
   templateUrl: './see-exercise.component.html',
   styleUrls: ['./see-exercise.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, EditorComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ProblemComponent,
+    SubmitComponent,
+    SubmissionsComponent,
+  ],
 })
 export class SeeExerciseComponent implements OnInit {
-  // Pestañas
   activeTab: 'problem' | 'submit' | 'submissions' = 'problem';
 
-  // Datos del ejercicio (simulados)
-  exercise = {
+  exercise: Exercise = {
     id: 'A123',
     title: 'Build an Array',
     difficulty: 'Easy',
@@ -36,10 +60,8 @@ export class SeeExerciseComponent implements OnInit {
       The first line of each test case description contains two integers n and k (1≤n≤10^5, n≤k≤10^6) — the length of the resulting array and the number of operations.
       The second line contains n integers ai (1≤ai≤10^9, ai−1≠ai) — the elements of the resulting array.
       It is guaranteed that the sum of the values of n across all test cases does not exceed 10^5.`,
-
     outputDescription: `For each test case, if there is no suitable sequence of operations of length k, output "NO". Otherwise, output "YES".
       You may output "YES" and "NO" in any case (for example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as a positive answer).`,
-
     topics: ['Matemáticas', 'Implementación'],
     materials: ['Aritmética Básica'],
     examples: [
@@ -56,16 +78,11 @@ export class SeeExerciseComponent implements OnInit {
     ],
   };
 
-  // Datos de envíos (simulados)
   submissions: ExerciseSubmission[] = [];
-
-  // Para el formulario de envío
-  solutionCode = '';
 
   constructor(private location: Location) {}
 
   ngOnInit(): void {
-    // Simular historial de envíos
     this.submissions = [
       {
         id: 1001,
@@ -92,21 +109,10 @@ export class SeeExerciseComponent implements OnInit {
     this.activeTab = tab;
   }
 
-  submitSolution(): void {
-    // Esta función se implementará más adelante para procesar el envío
-    console.log('Solución enviada:', this.solutionCode);
+  onSolutionSubmitted(code: string): void {
+    console.log('Solución enviada:', code);
   }
 
-  copyText(text: string): void {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        console.log('Texto copiado al portapapeles');
-      })
-      .catch((err) => {
-        console.error('Error al copiar texto: ', err);
-      });
-  }
   handleKeydown(
     event: KeyboardEvent,
     tab: 'problem' | 'submit' | 'submissions'
