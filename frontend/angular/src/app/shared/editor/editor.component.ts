@@ -5,9 +5,9 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 @Component({
   selector: 'app-editor',
   standalone: true,
-  imports: [CommonModule, FormsModule,CodemirrorModule],
+  imports: [CommonModule, FormsModule, CodemirrorModule],
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
   codigo: string = '';
@@ -22,17 +22,15 @@ export class EditorComponent implements OnInit {
     styleActiveLine: true,
     matchBrackets: true,
     viewportMargin: Infinity,
-    placeholder: 'Escribe tu código…'
+    placeholder: 'Escribe tu código…',
   };
-
 
   inputOptions = {
-    ...this.cmOptions,    
+    ...this.cmOptions,
     mode: 'text/plain',
     lineNumbers: false,
-    placeholder: 'Escribe tus inputs…'
+    placeholder: 'Escribe tus inputs…',
   };
-
 
   pyodide: any;
 
@@ -47,7 +45,6 @@ export class EditorComponent implements OnInit {
       const inputLines = this.inputs.split('\n');
       let inputIndex = 0;
 
-   
       const inputFunction = (prompt = '') => {
         if (inputIndex >= inputLines.length) {
           throw new Error('No hay más inputs disponibles');
@@ -57,27 +54,19 @@ export class EditorComponent implements OnInit {
         return value;
       };
 
-      
       this.pyodide.globals.set('input', inputFunction);
 
-      
       this.output = '';
 
-      
       this.pyodide.setStdout({
         batched: (text: string) => {
           this.output += text;
-        }
+        },
       });
 
-    
       await this.pyodide.runPythonAsync(this.codigo);
-
     } catch (error) {
       this.output = `Error: ${error}`;
     }
   }
-
-
-
 }

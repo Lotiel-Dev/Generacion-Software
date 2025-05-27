@@ -2,24 +2,26 @@
   <h2>Editor de Código Python</h2>
 
   <div class="editor">
-      <ngx-codemirror
-        class="cm-panel"
-        [(ngModel)]="codigo"
-        [options]="cmOptions">
-      </ngx-codemirror>
-
-      <ngx-codemirror
-        class="cm-panel"
-        [(ngModel)]="inputs"
-        [options]="inputOptions">
-      </ngx-codemirror>
+    <ngx-codemirror class="cm-panel" [(ngModel)]="codigo" [options]="cmOptions">
+    </ngx-codemirror>
+    <div class="output-panel">
+      <div class="section">
+        <h3>Input:</h3>
+        <ngx-codemirror
+          class="cm-panel"
+          [(ngModel)]="inputs"
+          [options]="inputOptions"
+        >
+        </ngx-codemirror>
+      </div>
+      <div class="section">
+        <h3>Output:</h3>
+        <pre>{{ output }}</pre>
+      </div>
+    </div>
   </div>
 
   <button class="btn-ejecutar" (click)="ejecutarCodigo()">
-    Ejecutar
+    <span>Ejecutar</span>
   </button>
-
-
-  <h3>Output:</h3>
-  <pre>{{ output }}</pre>
 </div>
