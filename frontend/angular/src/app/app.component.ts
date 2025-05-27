@@ -12,7 +12,7 @@ import { FooterComponent } from './shared/footer/footer.component';
   imports: [CommonModule, NavbarComponent, FooterComponent, RouterOutlet],
 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'angular';
