@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { EditorComponent } from './shared/editor/editor.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,7 @@ import { EditorComponent } from './shared/editor/editor.component';
   imports: [CommonModule, NavbarComponent, FooterComponent, RouterOutlet],
 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'angular';

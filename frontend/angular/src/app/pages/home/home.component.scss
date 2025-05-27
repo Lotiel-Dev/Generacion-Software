@@ -2,49 +2,31 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: radial-gradient(
-      circle at center,
-      #000000 0%,
-      rgba(0, 0, 0, 0.8) 25%,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    linear-gradient(
-      to bottom right,
-      #37223e 0%,
-      #272149 30%,
-      #000000 50%,
-      #272149 70%,
-      #37223e 100%
-    );
   color: white;
 }
-
 .content {
   flex: 1;
-  padding: 2rem;
+  padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
-
 .intro {
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
-  font-size: 3rem;
+  margin-top: 2rem;
+  font-size: 3.5rem;
 }
-
 .intro2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #b3c4cb;
 }
-
 .contenedorBotones {
   display: flex;
   gap: 2rem;
   margin-top: 2rem;
 }
-
 .imgPython {
   display: block;
   max-width: 60%;
@@ -53,16 +35,14 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* From Uiverse.io by cssbuttons-io */
 button {
   align-items: center;
   background-color: #df881d;
   border: 0;
   border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-shadow: rgba(40, 17, 67, 0.2) 0 15px 30px -5px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #df881d;
   display: flex;
   font-size: 18px;
   justify-content: center;
@@ -82,10 +62,11 @@ button {
 button:active,
 button:hover {
   outline: 0;
+  color: #2e2143;
 }
 
 button span {
-  background-color: rgb(5, 6, 45);
+  background-color: #2e2143;
   padding: 16px 24px;
   border-radius: 6px;
   width: 100%;
@@ -108,7 +89,6 @@ button:active {
   height: 100%;
   overflow: hidden;
 }
-
 .card {
   width: 100%;
   height: 100%;
@@ -124,6 +104,12 @@ button:active {
 .home-section {
   margin-top: 50px;
   margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.banner-text {
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 //Home: Banner de presentación
@@ -152,7 +138,7 @@ button:active {
     max-width: 50%;
   }
   .home-section h1 {
-    font-size: 2rem;
+    font-size: 4rem;
   }
   .home-section h2 {
     font-size: 1.5rem;
@@ -167,46 +153,62 @@ button:active {
 //Home: Beneficios Python
 .beneficios {
   text-align: center;
+  padding: 30px 20px;
+  align-items: center;
+  justify-content: center;
 }
-
+.beneficios-titulo {
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  min-width: 100%;
+}
 .beneficios h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 40px;
+  font-size: 3rem;
+  margin: 15px;
 }
-
+.beneficios h2 {
+  font-size: 1.2rem;
+  color: #b3c4cb;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
 .beneficios-cards {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.card-row {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-
 .beneficios-card {
-  background-color: #f2f2f2;
+  background: linear-gradient(to right, #36213e, #181335);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 16px;
+  border: 2px solid #e0e0e01b;
   width: 30%;
-  box-sizing: border-box;
   text-align: left;
 }
-
-.beneficios-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 12px;
+.beneficios-card h1 {
+  font-size: 3rem;
+  margin: 0 0 10px;
 }
-
 .beneficios-card h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #000000;
+  color: #f6f0f4;
 }
-
 .beneficios-card p {
-  font-size: 0.95rem;
-  color: #555555;
+  font-size: 1rem;
+  color: #b3c4cb;
 }
 
 @media screen and (max-width: 720px) {
@@ -222,56 +224,164 @@ button:active {
   }
 }
 
-//Home: Porque python
 #porque-python {
   display: flex;
-  align-items: center;
-}
-
-.porque-python-columna {
-  width: 50%;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-#porque-python h1 {
-  font-size: 3rem;
-}
-
-@media screen and (max-width: 720px) {
-  #porque-python {
-    flex-direction: column-reverse;
-  }
-
-  .porque-python-columna {
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  .porque-python-titulo {
+    text-align: center;
     width: 100%;
-    padding: 0 15px;
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: #b3c4cb;
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
-
-  .imgPython {
-    margin-bottom: 2rem;
-    max-width: 100%;
+  .porque-python-columna {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    align-items: center;
+    .porque-python-section {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      max-width: 95%;
+      .numero {
+        min-width: 80px;
+        min-height: 80px;
+        background: #df881d;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: #2e2143;
+          margin: 0;
+        }
+      }
+      div:last-child {
+        flex: 1;
+        padding: 5px;
+        margin-bottom: 10px;
+        h2 {
+          font-size: 1.5rem;
+          color: white;
+        }
+        p {
+          font-size: 1rem;
+          color: #b3c4cb;
+        }
+      }
+    }
+    .imgPython {
+      width: 60%;
+      height: auto;
+    }
   }
+}
+@media screen and (max-width: 1024px) {
+  #porque-python {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    .porque-python-columna {
+      max-width: 100%;
+    }
+    .imgPython {
+      max-width: 300px;
+      order: -1;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #porque-python {
+    padding: 40px 15px;
+    .porque-python-titulo {
+      margin-bottom: 40px;
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+    .porque-python-columna {
+      gap: 30px;
+      .porque-python-section {
+        gap: 20px;
+        .numero {
+          min-width: 70px;
+          height: 70px;
+          border-radius: 16px;
+          h2 {
+            font-size: 1.6rem;
+          }
+        }
+        div:last-child {
+          h2 {
+            font-size: 1.5rem;
+          }
+          p {
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+    .imgPython {
+      max-width: 250px;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  #porque-python {
+    .porque-python-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
 
-  #porque-python h1 {
-    font-size: 2.2rem;
-    margin-top: 1rem;
+      .numero {
+        min-width: 60px;
+        height: 60px;
+
+        h2 {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 }
 
 //Home:Areas de trabajo
 #areas-trabajo h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
   text-align: center;
 }
-
+#areas-trabajo h2 {
+  font-size: 1.2rem;
+  color: #b3c4cb;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
 #areas-trabajo {
   padding: 40px 20px;
-  //background-color: #f9f9f9;
 }
-
 .scroll-contenedor {
   display: flex;
   overflow-x: hidden;
@@ -281,7 +391,6 @@ button:active {
   width: 100%;
   scroll-behavior: smooth;
 }
-
 @keyframes autoScroll {
   0% {
     transform: translateX(0);
@@ -290,25 +399,21 @@ button:active {
     transform: translateX(calc(-300px * 3));
   }
 }
-
 .auto-scroll {
   animation: autoScroll 30s linear infinite;
   display: flex;
   width: max-content;
 }
-
-//parar el scroll
 .auto-scroll:hover {
   animation-play-state: paused;
 }
-
 .work-areas-card {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 300px;
   min-width: 280px;
-  width: 280px; // ancho
+  width: 280px;
   flex: 0 0 auto;
   border-radius: 10px;
   padding: 20px;
@@ -317,7 +422,6 @@ button:active {
   overflow: hidden;
   text-align: center;
   margin: 0 5px;
-
   p {
     color: white;
     font-weight: bold;
@@ -325,7 +429,6 @@ button:active {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     z-index: 2;
   }
-
   &::before {
     content: "";
     position: absolute;
@@ -337,7 +440,6 @@ button:active {
     z-index: 1;
   }
 }
-
 #work-card1 {
   background-image: url("../../../../public/images/web.jpg");
   background-size: cover;
@@ -362,14 +464,12 @@ button:active {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 #work-card5 {
   background-image: url("../../../../public/images/ciber.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 #work-card6 {
   background-image: url("../../../../public/images/ia.jpg");
   background-size: cover;

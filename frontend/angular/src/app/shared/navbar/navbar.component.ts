@@ -1,7 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { TerminalComponent } from '../../pages/terminal/terminal.component';
 
 @Component({
   selector: 'app-navbar',
