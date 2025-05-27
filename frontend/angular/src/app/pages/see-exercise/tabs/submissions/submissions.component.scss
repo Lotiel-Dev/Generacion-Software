@@ -9,67 +9,81 @@ $time-limit-color: #ff9800;
 $runtime-error-color: #9c27b0;
 
 .submissions-container {
-  width: 100%;
+  width: 100vw;
+
   h3 {
     margin-top: 0;
     margin-bottom: 25px;
     color: $text-color;
   }
+
   .submissions-table {
-    width: 100%;
+    width: 80vw;
     border-collapse: collapse;
     background-color: $card-background;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid $border-color;
+
     th,
     td {
       padding: 15px 20px;
       text-align: left;
       border-bottom: 1px solid $border-color;
     }
+
     th {
       font-weight: 600;
       background-color: rgba($primary-color, 0.05);
       color: $text-color;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
 
     td {
       color: $text-secondary;
-      font-size: 14px;
+      font-size: 0.9rem;
     }
+
     tr {
       transition: background-color 0.2s ease;
+
       &:hover {
         background-color: rgba($text-color, 0.02);
       }
-      &.accepted {
-        .status {
-          color: $accepted-color;
-        }
+
+      &.accepted .status {
+        color: $accepted-color;
       }
-      &.wrong-answer {
-        .status {
-          color: $wrong-answer-color;
-        }
+
+      &.wrong-answer .status {
+        color: $wrong-answer-color;
       }
-      &.time-limit {
-        .status {
-          color: $time-limit-color;
-        }
+
+      &.time-limit .status {
+        color: $time-limit-color;
       }
-      &.runtime-error {
-        .status {
-          color: $runtime-error-color;
-        }
+
+      &.runtime-error .status {
+        color: $runtime-error-color;
       }
     }
   }
+
   .no-submissions {
     text-align: center;
     padding: 60px 0;
     color: $text-secondary;
     font-style: italic;
+  }
+
+  @media screen and (max-width: 800px) {
+    .submissions-table {
+      width: 90vw;
+
+      th,
+      td {
+        padding: 10px 5px;
+      }
+    }
   }
 }
