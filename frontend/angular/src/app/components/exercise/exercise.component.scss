@@ -7,8 +7,7 @@
   background: #2e2143;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 1000px;
+  width: 1000px;
   box-sizing: border-box;
   &:hover {
     transform: translateY(-2px);
@@ -29,13 +28,14 @@ p {
   font-weight: 400;
   text-align: left;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1000px) {
   .container {
-    max-width: 85vw;
+    max-width: 90vw;
     overflow: hidden;
     margin: auto;
   }
-
+}
+@media screen and (max-width: 480px) {
   .statement > p {
     width: 500px;
   }
