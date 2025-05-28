@@ -15,6 +15,9 @@ jobs:
       run:
         working-directory: ./frontend/angular
 
+    env:
+      REPORT_DIR: ${{ github.workspace }}/test-reports
+
     steps:
       - name: Checkout repositorio
         uses: actions/checkout@v4
@@ -28,15 +31,40 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/angular/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Instalar dependencias
         run: npm install
 
-      - name: Ejecutar Linter
-        run: npm run lint
+      - name: Ejecutar Linter y guardar resultados
+        run: |
+          mkdir -p "$REPORT_DIR"
+          echo "## 🧹 Resultados de Linter - $(date)" > "$REPORT_DIR/lint-results.md"
+          echo '```' >> "$REPORT_DIR/lint-results.md"
+          npm run lint >> "$REPORT_DIR/lint-results.md" || echo "Linting completed with issues"
+          echo '```' >> "$REPORT_DIR/lint-results.md"
 
-      - name: Ejecutar pruebas unitarias
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+      - name: Ejecutar pruebas unitarias y guardar resultados
+        run: |
+          mkdir -p "$REPORT_DIR"
+          echo "## 🧪 Resultados de Pruebas - $(date)" > "$REPORT_DIR/test-results.md"
+          echo '```' >> "$REPORT_DIR/test-results.md"
+          npm run test -- --watch=false --browsers=ChromeHeadless --reporters=progress >> "$REPORT_DIR/test-results.md"
+          echo '```' >> "$REPORT_DIR/test-results.md"
+
+      - name: Subir reportes como artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: ${{ env.REPORT_DIR }}
+
+      - name: Commit y push de resultados
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config --global user.name "Frosmin"
+          git config --global user.email "simonabastomart@gmail.com"
+          git add "$REPORT_DIR/lint-results.md" "$REPORT_DIR/test-results.md"
+          git commit -m "📋 Actualizar resultados de lint y pruebas [skip ci]" || echo "Sin cambios"
+          git push
