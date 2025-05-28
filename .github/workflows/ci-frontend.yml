@@ -51,6 +51,12 @@ jobs:
           npm run test -- --watch=false --browsers=ChromeHeadless --reporters=progress >> ../../../test-reports/test-results.md
           echo '```' >> ../../../test-reports/test-results.md
 
+      - name: Subir reportes como artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: ../../../test-reports/
+
       - name: Commit y push de resultados
         run: |
           git config --global user.name "Lotiel-Dev"
@@ -58,4 +64,3 @@ jobs:
           git add test-reports/lint-results.md test-reports/test-results.md
           git commit -m "📋 Actualizar resultados de lint y pruebas [skip ci]" || echo "Sin cambios"
           git push
-      
