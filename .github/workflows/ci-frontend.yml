@@ -51,5 +51,11 @@ jobs:
           npm run test -- --watch=false --browsers=ChromeHeadless --reporters=progress >> ../../../test-reports/test-results.md
           echo '```' >> ../../../test-reports/test-results.md
 
-      
+      - name: Commit y push de resultados
+        run: |
+          git config --global user.name "Lotiel-Dev"
+          git config --global user.email "karlos817gerceis@gmail.com"
+          git add test-reports/lint-results.md test-reports/test-results.md
+          git commit -m "📋 Actualizar resultados de lint y pruebas [skip ci]" || echo "Sin cambios"
+          git push
       
