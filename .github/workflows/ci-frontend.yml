@@ -43,4 +43,13 @@ jobs:
           npm run lint >> ../../../test-reports/lint-results.md || echo "Linting completed with issues"
           echo '```' >> ../../../test-reports/lint-results.md
 
+      - name: Ejecutar pruebas unitarias y guardar resultados
+        run: |
+          mkdir -p ../../../test-reports
+          echo "## 🧪 Resultados de Pruebas - $(date)" > ../../../test-reports/test-results.md
+          echo '```' >> ../../../test-reports/test-results.md
+          npm run test -- --watch=false --browsers=ChromeHeadless --reporters=progress >> ../../../test-reports/test-results.md
+          echo '```' >> ../../../test-reports/test-results.md
+
+      
       
