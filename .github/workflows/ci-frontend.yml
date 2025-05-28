@@ -58,6 +58,7 @@ jobs:
           path: ../../../test-reports/
 
       - name: Commit y push de resultados
+        if: github.ref == 'refs/heads/main'
         run: |
           git config --global user.name "Lotiel-Dev"
           git config --global user.email "karlos817gerceis@gmail.com"
