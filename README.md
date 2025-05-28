@@ -14,3 +14,7 @@ Incluye módulos de aprendizaje en niveles básico, intermedio y avanzado, ejerc
 ## 🚀 Installation
 > [!IMPORTANT]
 > Leer el archivo de deploy.
+
+## 🧪 Últimos resultados de pruebas
+
+[Ver resultados detallados](./test-reports/test-results.md)
