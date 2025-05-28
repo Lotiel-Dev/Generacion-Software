@@ -86,14 +86,14 @@ export class SeeExerciseComponent implements OnInit {
     this.submissions = [
       {
         id: 1001,
-        submittedAt: new Date(2025, 4, 15, 10, 30),
+        submittedAt: new Date(2025, 4, 15),
         status: 'Accepted',
         executionTime: '15ms',
         memory: '4KB',
       },
       {
         id: 1000,
-        submittedAt: new Date(2025, 4, 15, 10, 15),
+        submittedAt: new Date(2025, 4, 15),
         status: 'Wrong Answer',
         executionTime: '12ms',
         memory: '4KB',

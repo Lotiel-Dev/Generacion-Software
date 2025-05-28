@@ -19,7 +19,6 @@ $runtime-error-color: #9c27b0;
   border-radius: 12px;
   padding: 20px;
 }
-
 .exercise-container {
   min-width: 100%;
   color: $text-color;
@@ -46,9 +45,8 @@ $runtime-error-color: #9c27b0;
     display: flex;
     flex-direction: row;
     gap: 8px;
-    .exercise-title {
+    .exercise-title{
       margin: 0;
-      font-size: 2rem;
       font-weight: 600;
       color: $text-color;
       display: flex;
@@ -57,11 +55,14 @@ $runtime-error-color: #9c27b0;
       margin-right: 25px;
     }
     .difficulty-badge {
-      padding: 10px 10px;
+      padding: 0 10px;
       border-radius: 12px;
       font-size: 0.9rem;
       font-weight: 500;
       text-transform: lowercase;
+      text-align: center;
+      align-items: center;
+      display: inline-flex;
       &.easy {
         background-color: rgba($accepted-color, 0.2);
         color: $accepted-color;
@@ -92,6 +93,7 @@ $runtime-error-color: #9c27b0;
       padding: 15px 24px;
       cursor: pointer;
       border-bottom: 3px solid transparent;
+      font-size: 1rem;
       font-weight: 500;
       transition: all 0.2s ease;
       color: $text-secondary;
@@ -126,7 +128,7 @@ $runtime-error-color: #9c27b0;
     h4 {
       margin: 0 0 15px 0;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 1.25rem;
       color: $text-color;
       display: flex;
       align-items: center;
@@ -136,7 +138,7 @@ $runtime-error-color: #9c27b0;
       margin: 0;
       line-height: 1.5;
       color: $text-secondary;
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
   .topics-card {

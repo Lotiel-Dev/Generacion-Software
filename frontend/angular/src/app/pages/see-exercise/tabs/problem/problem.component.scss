@@ -1,5 +1,4 @@
 @use "sass:color";
-
 // Variables compartidas
 $primary-color: #df881d;
 $secondary-color: #1e1e2e;
@@ -15,29 +14,22 @@ $text-secondary: #b3c4cb;
   border-radius: 12px;
   padding: 20px;
 }
-
 .problem-content {
   .section {
     @include card-box;
     margin-bottom: 40px;
     padding: 10px 30px;
     min-width: 100%;
-    h2 {
-      margin: 0 0 20px 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: $text-color;
-    }
     h3 {
       margin: 20px 0 15px 0;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: $text-color;
     }
     p {
       color: $text-secondary;
       line-height: 1.8;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
   .examples {
@@ -66,7 +58,7 @@ $text-secondary: #b3c4cb;
             font-weight: 600;
             margin-bottom: 8px;
             color: $text-color;
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
           .copy-btn {
             background-color: rgba($primary-color, 0.1);
@@ -76,7 +68,7 @@ $text-secondary: #b3c4cb;
             padding: 6px 12px;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             justify-content: end;
 
             &:hover {
@@ -98,6 +90,35 @@ $text-secondary: #b3c4cb;
         p {
           color: $text-secondary;
           line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .problem-content {
+    .section {
+      padding: 10px 20px;
+    }
+    .examples {
+      padding: 15px 20px;
+      .example {
+        border-radius: 0;
+        padding: 0;
+        margin-bottom: 25px;
+        background: transparent;
+        border: none;
+        .example-header {
+          font-size: 1rem;
+        }
+        .example-input,
+        .example-output,
+        .example-explanation {
+          margin-bottom: 10px;          
+          pre {
+            padding: 10px;
+          }
         }
       }
     }
