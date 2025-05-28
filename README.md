@@ -15,6 +15,7 @@ Incluye módulos de aprendizaje en niveles básico, intermedio y avanzado, ejerc
 > [!IMPORTANT]
 > Leer el archivo de deploy.
 
-## 🧪 Últimos resultados de pruebas
+## 🔍 CI - Últimos Resultados
 
-[Ver resultados detallados](./test-reports/test-results.md)
+- [🧹 Linter](./test-reports/lint-results.md)
+- [🧪 Pruebas Unitarias](./test-reports/test-results.md)
