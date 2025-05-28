@@ -2,7 +2,7 @@
 
 # Proyecto Angular Frontend
 
-[![CI Frontend](https://github.com/Frosmin/Generacion-Software/actions/workflows/ci-frontend.yml/badge.svg)](https://github.com/Frosmin/Generacion-Software/actions/workflows/ci-frontend.yml)
+[![CI Frontend](https://github.com/Lotiel-Dev/Generacion-Software/actions/workflows/ci-frontend.yml/badge.svg)](https://github.com/Lotiel-Dev/Generacion-Software/actions/workflows/ci-frontend.yml)
 
 
 
