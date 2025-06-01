@@ -20,14 +20,17 @@
   display: flex;
   gap: 2rem;
 }
-.boton-saber-mas a {
+.boton-banner-home a {
   all: unset;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
   color: inherit;
 }
-.boton-saber-mas a span {
+.boton-banner-home {
+  padding: 20px 4px;
+}
+.boton-banner-home a span {
   transition: 100ms;
 }
 .imgPython {
