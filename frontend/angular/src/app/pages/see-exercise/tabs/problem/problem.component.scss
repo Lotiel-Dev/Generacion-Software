@@ -6,7 +6,7 @@ $background-color: #120e23;
 $card-background: #2e2143;
 $border-color: #ffffff32;
 $text-color: #fff;
-$text-secondary: #b3c4cb;
+$text-secondary: #dddddd;
 
 @mixin card-box {
   background-color: $card-background;
@@ -115,7 +115,7 @@ $text-secondary: #b3c4cb;
         .example-input,
         .example-output,
         .example-explanation {
-          margin-bottom: 10px;          
+          margin-bottom: 10px;
           pre {
             padding: 10px;
           }

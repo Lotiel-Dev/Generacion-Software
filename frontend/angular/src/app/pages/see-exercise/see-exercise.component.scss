@@ -7,7 +7,7 @@ $background-color: #120e23;
 $card-background: #2e2143;
 $border-color: #ffffff32;
 $text-color: #fff;
-$text-secondary: #b3c4cb;
+$text-secondary: #dddddd;
 $accepted-color: #4caf50;
 $wrong-answer-color: #f44336;
 $time-limit-color: #ff9800;
@@ -45,7 +45,7 @@ $runtime-error-color: #9c27b0;
     display: flex;
     flex-direction: row;
     gap: 8px;
-    .exercise-title{
+    .exercise-title {
       margin: 0;
       font-weight: 600;
       color: $text-color;
