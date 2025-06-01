@@ -20,6 +20,16 @@
   display: flex;
   gap: 2rem;
 }
+.boton-saber-mas a {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+.boton-saber-mas a span {
+  transition: 100ms;
+}
 .imgPython {
   display: block;
   max-width: 60%;
