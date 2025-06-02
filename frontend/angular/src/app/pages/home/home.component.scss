@@ -14,11 +14,24 @@
 .intro2 {
   font-size: 1.5rem;
   margin-bottom: 3rem;
-  color: #b3c4cb;
+  color: #dddddd;
 }
 .contenedorBotones {
   display: flex;
   gap: 2rem;
+}
+.boton-banner-home a {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+.boton-banner-home {
+  padding: 20px 4px;
+}
+.boton-banner-home a span {
+  transition: 100ms;
 }
 .imgPython {
   display: block;
@@ -40,7 +53,7 @@ button {
 }
 button:active,
 button:hover {
-  color: #2e2143;
+  color: #dddddd;
 }
 button span {
   background-color: #2e2143;
@@ -96,7 +109,7 @@ button:active {
 }
 .beneficios h2 {
   font-size: 1.2rem;
-  color: #b3c4cb;
+  color: #dddddd;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -133,7 +146,7 @@ button:active {
 }
 .beneficios-card p {
   font-size: 1rem;
-  color: #b3c4cb;
+  color: #dddddd;
 }
 #porque-python {
   margin-top: 100px;
@@ -148,7 +161,7 @@ button:active {
     }
     h2 {
       font-size: 1.25rem;
-      color: #b3c4cb;
+      color: #dddddd;
       font-weight: 600;
       max-width: 600px;
       margin: 0 auto;
@@ -186,7 +199,7 @@ button:active {
         }
         p {
           font-size: 1rem;
-          color: #b3c4cb;
+          color: #dddddd;
         }
       }
     }
@@ -203,7 +216,7 @@ button:active {
 }
 #areas-trabajo h2 {
   font-size: 1.2rem;
-  color: #b3c4cb;
+  color: #dddddd;
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
