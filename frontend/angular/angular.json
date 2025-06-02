@@ -32,9 +32,15 @@
               }
             ],
             "styles": [
+              "node_modules/codemirror/lib/codemirror.css",
+              "node_modules/codemirror/theme/material.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/codemirror/lib/codemirror.js",
+              "node_modules/codemirror/mode/python/python.js",
+              "node_modules/codemirror/addon/display/placeholder.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,13 +99,26 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
