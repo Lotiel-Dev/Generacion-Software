@@ -62,12 +62,3 @@ jobs:
         with:
           name: test-reports
           path: ${{ env.REPORT_DIR }}
-
-      - name: Commit y push de resultados
-        if: github.ref == 'refs/heads/main'
-        run: |
-          git config --global user.name "Frosmin"
-          git config --global user.email "simonabastomart@gmail.com"
-          git add "$REPORT_DIR/lint-results.md" "$REPORT_DIR/test-results.md"
-          git commit -m "📋 Actualizar resultados de lint y pruebas [skip ci]" || echo "Sin cambios"
-          git push
