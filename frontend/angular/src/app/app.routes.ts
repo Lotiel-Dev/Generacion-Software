@@ -7,6 +7,7 @@ import { LearningProgressComponent } from './pages/learning-progress/learning-pr
 import { CoursesListComponent } from './pages/courses-list/courses-list.component';
 import { TerminalComponent } from './pages/terminal/terminal.component';
 import { SeeExerciseComponent } from './pages/see-exercise/see-exercise.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'progreso-aprendizaje', component: LearningProgressComponent },
   { path: 'lista-cursos', component: CoursesListComponent },
   { path: 'terminal', component: TerminalComponent },
+  { path: 'login', component: LoginComponent },
 ];
