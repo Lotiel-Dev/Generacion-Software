@@ -16,6 +16,7 @@ import { filter } from 'rxjs/operators';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  title = 'angular';
   showLayout = true;
 
   constructor(private router: Router) {
