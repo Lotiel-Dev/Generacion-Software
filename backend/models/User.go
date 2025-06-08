@@ -8,10 +8,10 @@ import (
 type User struct {
 	gorm.Model
 
-	Username  string `grom:"unique;not null"`
-	FirstName string `grom:"not null"`
-	LastName  string `grom:"not null"`
-	Email     string `grom:"unique;not null"`
+	Username  string `gorm:"unique;not null"`
+	FirstName string `gorm:"not null"`
+	LastName  string `gorm:"not null"`
+	Email     string `gorm:"unique;not null"`
 	Password  string
 }
 
