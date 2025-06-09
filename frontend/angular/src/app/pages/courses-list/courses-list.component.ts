@@ -31,7 +31,117 @@ export class CoursesListComponent {
     'intro', 'started', 'syntax', 'comments', 'variables', 'datatypes', 'strings', 'lists', 'functions'
   ];
 
-  // Mapeo del contenido de cada sección para exportación
+  // Ejemplos de código para secciones especiales
+examples: { [key: string]: { title: string, code: string, description: string, tips: string[], operations: string[] } } = {
+  lists: {
+    title: 'Listas en Python',
+    description: 'Las listas son colecciones ordenadas y mutables que permiten elementos duplicados. Son ideales para almacenar secuencias de datos.',
+    code: `# Creamos una lista con tres frutas
+mi_lista = ["manzana", "plátano", "cereza"]
+
+# Mostramos toda la lista
+print(mi_lista)
+
+# Accedemos al segundo elemento (índice 1)
+print(mi_lista[1])  # Resultado: plátano
+
+# Agregamos una nueva fruta al final
+mi_lista.append("naranja")
+
+# Mostramos la lista actualizada
+print(mi_lista)`,
+    tips: [
+      'Puedes mezclar tipos de datos en una lista.',
+      'Las listas pueden contener otras listas (listas anidadas).',
+      'Usa slicing: mi_lista[1:3] para obtener una sublista.'
+    ],
+    operations: [
+      'append(x): Agrega un elemento al final',
+      'remove(x): Elimina la primera aparición de x',
+      'pop(i): Elimina y retorna el elemento en la posición i',
+      'sort(): Ordena la lista',
+      'reverse(): Invierte el orden de la lista'
+    ]
+  },
+  tuples: {
+    title: 'Tuplas en Python',
+    description: 'Las tuplas son como listas, pero inmutables. Útiles para datos que no deben cambiar.',
+    code: `# Creamos una tupla con tres frutas
+mia_tupla = ("manzana", "plátano", "cereza")
+
+# Mostramos toda la tupla
+print(mia_tupla)
+
+# Accedemos al primer elemento (índice 0)
+print(mia_tupla[0])  # Resultado: manzana`,
+    tips: [
+      'Las tuplas pueden ser usadas como claves en diccionarios.',
+      'Para crear una tupla de un solo elemento: tupla = ("manzana",)',
+      'Son más rápidas que las listas para operaciones de solo lectura.'
+    ],
+    operations: [
+      'count(x): Cuenta cuántas veces aparece x',
+      'index(x): Devuelve el índice de la primera aparición de x'
+    ]
+  },
+  sets: {
+    title: 'Sets en Python',
+    description: 'Los sets son colecciones desordenadas, sin elementos duplicados. Ideales para operaciones de conjuntos.',
+    code: `# Creamos un set con tres frutas (sin duplicados)
+miset = {"manzana", "plátano", "cereza"}
+
+# Mostramos el set
+print(miset)
+
+# Agregamos una nueva fruta al set
+miset.add("naranja")
+
+# Mostramos el set actualizado
+print(miset)`,
+    tips: [
+      'No puedes acceder a los elementos por índice.',
+      'Perfectos para eliminar duplicados de una lista: set([1,2,2,3])',
+      'Puedes hacer uniones, intersecciones y diferencias.'
+    ],
+    operations: [
+      'add(x): Agrega un elemento',
+      'remove(x): Elimina x (error si no existe)',
+      'discard(x): Elimina x (sin error si no existe)',
+      'union(set2): Unión de sets',
+      'intersection(set2): Intersección de sets',
+      'difference(set2): Diferencia de sets'
+    ]
+  },
+  dictionaries: {
+    title: 'Diccionarios en Python',
+    description: 'Los diccionarios almacenan pares clave:valor. Son ideales para representar entidades y sus atributos.',
+    code: `# Creamos un diccionario con dos pares clave:valor
+mi_diccionario = {"nombre": "Juan", "edad": 30}
+
+# Mostramos todo el diccionario
+print(mi_diccionario)
+
+# Agregamos una nueva clave 'ciudad'
+mi_diccionario["ciudad"] = "Bogotá"
+
+# Mostramos el valor asociado a la clave 'nombre'
+print(mi_diccionario["nombre"])  # Resultado: Juan` ,
+    tips: [
+      'Las claves deben ser únicas y de tipo inmutable.',
+      'Puedes iterar sobre claves, valores o ambos.',
+      'Método get() para acceso seguro: mi_diccionario.get("clave")'
+    ],
+    operations: [
+      'keys(): Lista todas las claves',
+      'values(): Lista todos los valores',
+      'items(): Lista pares clave-valor',
+      'update(dict2): Actualiza con otro diccionario',
+      'pop(clave): Elimina clave y retorna su valor'
+    ]
+  }
+};
+
+// Mapeo del contenido de cada sección para exportación
   private sectionContent: { [key: string]: any } = {
     intro: {
       title: '¿Qué es Python?',
