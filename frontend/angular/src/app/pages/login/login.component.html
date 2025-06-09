@@ -5,6 +5,11 @@
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <!-- Mensaje de error en el login :D -->
+            <div *ngIf="errorMessage" class="error-message-general">
+                {{ errorMessage }}
+            </div>
+
             <div class="form-group">
                 <label for="email" class="form-label">Correo Electrónico</label>
                 <input type="email" id="email" formControlName="email" class="form-input" autocomplete="off"
@@ -23,6 +28,7 @@
                         placeholder="Tu contraseña" autocomplete="off" />
                     <button type="button" class="password-toggle" (click)="togglePasswordVisibility()"
                         aria-label="Mostrar/Ocultar contraseña">
+
                         <ng-container *ngIf="!showPassword">
                             <!-- SVG ojo abierto -->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -65,15 +71,16 @@
                 </div>
             </div>
 
-            <button type="submit" class="submit-button">
-                Iniciar Sesión
+            <button type="submit" class="submit-button" [disabled]="isLoading" [class.loading]="isLoading">
+                <span *ngIf="!isLoading">Iniciar Sesión</span>
+                <span *ngIf="isLoading">Iniciando sesión...</span>
             </button>
         </form>
 
         <div class="login-footer">
             <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
             <p class="register-link">
-                ¿No tienes cuenta? <a href="#">Regístrate aquí</a>
+                ¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a>
             </p>
         </div>
     </div>

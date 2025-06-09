@@ -37,5 +37,8 @@ func SetupRouter() *gin.Engine {
 	api.POST("/video", PostVideoHandler)
 	api.GET("/videos20", GetVideosHandler20)
 
+	//login
+	api.POST("/login", LoginHandler)
+
 	return r
 }
