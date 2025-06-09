@@ -8,17 +8,22 @@ import { CoursesListComponent } from './pages/courses-list/courses-list.componen
 import { TerminalComponent } from './pages/terminal/terminal.component';
 import { SeeExerciseComponent } from './pages/see-exercise/see-exercise.component';
 import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-
-  // listas
-  { path: 'buscador', component: PaginaBuscadorComponent },
-  { path: 'lista-videos', component: VideosListComponent },
-  { path: 'lista-ejercicios', component: ExercisesListComponent },
-  { path: 'exercise/:id', component: SeeExerciseComponent },
-  { path: 'progreso-aprendizaje', component: LearningProgressComponent },
-  { path: 'lista-cursos', component: CoursesListComponent },
-  { path: 'terminal', component: TerminalComponent },
   { path: 'login', component: LoginComponent },
+
+
+
+
+  // rutas protegidas
+  { path: 'buscador', component: PaginaBuscadorComponent, canMatch: [authGuard] },
+  { path: 'lista-videos', component: VideosListComponent, canMatch: [authGuard] },
+  { path: 'lista-ejercicios', component: ExercisesListComponent, canMatch: [authGuard] },
+  { path: 'exercise/:id', component: SeeExerciseComponent, canMatch: [authGuard] },
+  { path: 'progreso-aprendizaje', component: LearningProgressComponent, canMatch: [authGuard] },
+  { path: 'lista-cursos', component: CoursesListComponent, canMatch: [authGuard] },
+  { path: 'terminal', component: TerminalComponent, canMatch: [authGuard] },
+
 ];
