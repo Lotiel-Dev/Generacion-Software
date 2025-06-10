@@ -33,7 +33,7 @@
           font-size: 1.2rem;
           margin-bottom: 0.5rem;
           margin-top: 0;
-          color: #b3c4cb;
+          color: #dddddd;
           flex-shrink: 0;
         }
         .cm-panel {
@@ -78,7 +78,7 @@
   button:active,
   button:hover {
     outline: 0;
-    color: #2e2143;
+    color: white;
   }
   button span {
     background-color: #2e2143;
@@ -144,5 +144,4 @@
       }
     }
   }
-  
 }

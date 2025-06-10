@@ -2,8 +2,7 @@
 
 $primary-color: #007bff;
 $primary-hover: color.adjust($primary-color, $lightness: -10%);
-$bg-color: #f9f9f9;
-$text-color: #333;
+$text-color: #dddddd;
 $border-color: #ccc;
 $shadow-color: rgba(0, 0, 0, 0.05);
 
@@ -14,7 +13,6 @@ $shadow-color: rgba(0, 0, 0, 0.05);
   justify-content: center;
   padding: 40px;
   min-height: 100vh;
-  background-color: $bg-color;
   font-family: Arial, sans-serif;
 
   .titulo {
@@ -69,7 +67,7 @@ $shadow-color: rgba(0, 0, 0, 0.05);
 
     .resultado-item {
       padding: 10px;
-      background-color: white;
+      color: $text-color;
       border: 1px solid color.adjust($border-color, $lightness: 10%);
       border-radius: 6px;
       margin-bottom: 10px;
@@ -85,7 +83,7 @@ $shadow-color: rgba(0, 0, 0, 0.05);
   }
 }
 .icono-curso {
-  width: 24px; // o 20px si prefieres más pequeño
+  width: 24px;
   height: 24px;
   object-fit: contain;
   margin-right: 6px;

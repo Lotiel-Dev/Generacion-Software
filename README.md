@@ -1,8 +1,9 @@
 # Plataforma de Enseñanza de Programación en Python
 
-# Proyecto Angular Frontend
 
 [![CI Frontend](https://github.com/Lotiel-Dev/Generacion-Software/actions/workflows/ci-frontend.yml/badge.svg)](https://github.com/Lotiel-Dev/Generacion-Software/actions/workflows/ci-frontend.yml)
+
+[![CI Backend](https://github.com/Frosmin/Generacion-Software/actions/workflows/ci-backend.yml/badge.svg)](https://github.com/Frosmin/Generacion-Software/actions/workflows/ci-backend.yml)
 
 
 
