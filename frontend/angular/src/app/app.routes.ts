@@ -18,12 +18,12 @@ export const routes: Routes = [
 
 
   // rutas protegidas
-  { path: 'buscador', component: PaginaBuscadorComponent, canMatch: [authGuard] },
-  { path: 'lista-videos', component: VideosListComponent, canMatch: [authGuard] },
-  { path: 'lista-ejercicios', component: ExercisesListComponent, canMatch: [authGuard] },
-  { path: 'exercise/:id', component: SeeExerciseComponent, canMatch: [authGuard] },
+  { path: 'buscador', component: PaginaBuscadorComponent },
+  { path: 'lista-videos', component: VideosListComponent },
+  { path: 'lista-ejercicios', component: ExercisesListComponent },
+  { path: 'exercise/:id', component: SeeExerciseComponent },
   { path: 'progreso-aprendizaje', component: LearningProgressComponent, canMatch: [authGuard] },
-  { path: 'lista-cursos', component: CoursesListComponent, canMatch: [authGuard] },
-  { path: 'terminal', component: TerminalComponent, canMatch: [authGuard] },
+  { path: 'lista-cursos', component: CoursesListComponent },
+  { path: 'terminal', component: TerminalComponent },
 
 ];
